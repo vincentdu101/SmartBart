@@ -1,17 +1,10 @@
 package services;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.jdbc.core.PreparedStatementCreator;
-
-import trainapp.Train;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
+import models.Train;
 
 /**
  * Created by vincentdu on 5/7/17.

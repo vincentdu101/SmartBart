@@ -3,7 +3,7 @@ package services;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import trainapp.*;
+import models.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

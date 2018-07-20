@@ -1,14 +1,8 @@
 package services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import services.ResourceService;
-import trainapp.Station;
-import trainapp.Direction;
-import trainapp.TrainStationProgress;
+import models.Direction;
+import models.TrainStationProgress;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

@@ -6,9 +6,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import trainapp.TrainStationProgress;
-import trainapp.Station;
-import trainapp.Train;
+import models.TrainStationProgress;
+import models.Station;
+import models.Train;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
