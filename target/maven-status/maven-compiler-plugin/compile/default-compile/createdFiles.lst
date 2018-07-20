@@ -15,8 +15,8 @@ trainapp/NorthAStation.class
 hello/TrainController.class
 trainapp/TrainMonitor.class
 db/TrainController.class
-hello/Message.class
 hello/Application.class
+hello/Message.class
 trainapp/Iterator.class
 trainapp/StationState.class
 trainapp/NorthCTrain.class
