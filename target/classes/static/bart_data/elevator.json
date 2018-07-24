@@ -1,1 +1,0 @@
-{"?xml":{"@version":"1.0","@encoding":"utf-8"},"root":{"@id":"1","uri":{"#cdata-section":"http://api.bart.gov/api/bsa.aspx?cmd=elev&json=y"},"date":"07/18/2018","time":"09:19:20 AM PDT","bsa":[{"station":"ALL","description":{"#cdata-section":"Attention passengers: All elevators are in service. Thank You."},"sms_text":{"#cdata-section":": all elevs are in svc."}}],"message":""}}

@@ -1,22 +1,15 @@
 package services;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.jdbc.core.PreparedStatementCreator;
+import models.Train;
 
-import trainapp.Train;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,7 +21,7 @@ import java.util.Iterator;
  */
 public class TrainService extends ResourceService {
 
-    private static JSONParser jsonParser;
+//    private static JSONParser jsonParser;
 
     private static Train createTrainFromMapObject(Map<String, Object> objectMap) {
 
@@ -54,17 +47,17 @@ public class TrainService extends ResourceService {
     }
 
     public static List<Train> getAllBartTrains() {
-        try {
-            Object object = jsonParser.parse(new FileReader("../"));
-            JSONObject jsonObject = (JSONObject) object;
-            System.out.println(jsonObject);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Object object = jsonParser.parse(new FileReader("../"));
+//            JSONObject jsonObject = (JSONObject) object;
+//            System.out.println(jsonObject);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
         return null;
     }
 

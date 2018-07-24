@@ -2,12 +2,104 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31a72ed3-846c-4585-8a87-756680b37f1f" name="Default" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gs-relational-data-access.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gs-relational-data-access.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/TrainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TrainService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/services/TrainService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TrainService.class" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/RoutesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Route.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/RequestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/RouteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gs-relational-data-access.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gs-relational-data-access.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Greeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Greeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/GreetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GreetingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/SeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SeatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/StationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/TrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ResourceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/SeatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SeatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/StationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/StationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/TrainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TrainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/TrainStationProgressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TrainStationProgressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Iterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Iterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Monitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthAStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthAStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthATrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthATrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthBTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthBTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthCTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthCTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthTrainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthTrainFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Seat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SeatType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SeatType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthATrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthATrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthBTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthBTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthCTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthCTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthTrainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthTrainFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Station.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/StationMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/StationMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/StationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/StationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Train.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Train.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainStationProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainStationProgress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/Greeting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/GreetingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/SeatController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/StationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/TrainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hello/WebSocketConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/ResourceService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ResourceService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/ResourceService$StationMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ResourceService$StationMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/ResourceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ResourceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/SeatService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SeatService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/SeatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SeatService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/StationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/StationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/TrainService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TrainService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/TrainStationProgressService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TrainStationProgressService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Iterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Monitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthAStation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthATrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthBTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthCTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthTrainFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SeatType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthATrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthBTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthCTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthTrainFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Station.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/StationMonitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/StationState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Train.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainMonitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainStationProgress.class" beforeDir="false" />
+>>>>>>> 04e9ac09424e14b64e6115d7fa35af8e9e3ea5fa
       <change beforePath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
@@ -21,6 +113,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/Customer.java">
@@ -107,6 +200,138 @@
         </entry>
       </file>
     </leaf>
+=======
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Application.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ResourceService.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/services/ResourceService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Route.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/models/Route.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RouteService.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/services/RouteService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="488">
+                  <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="JSONObject.class" pinned="false" current-in-tab="false">
+            <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20180130/json-20180130.jar!/org/json/JSONObject.class">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="219">
+                  <caret line="228" column="18" selection-start-line="228" selection-start-column="18" selection-end-line="228" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pom.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="464">
+                  <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RequestService.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/services/RequestService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="route_help.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/route_help.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="209" selection-start-column="209" selection-end-column="209" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="StationService.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/services/StationService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="RoutesController.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/controllers/RoutesController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#550#551#0" expanded="true" />
+                    <element signature="e#571#572#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+>>>>>>> 04e9ac09424e14b64e6115d7fa35af8e9e3ea5fa
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,8 +362,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/station_information.json" />
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/station_access_information.json" />
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/station_access_info_help.json" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/services/TrainService.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/hello/RoutesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/RoutesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/RequestService.java" />
+        <option value="$PROJECT_DIR$/beans.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/Application.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/services/RouteService.java" />
+>>>>>>> 04e9ac09424e14b64e6115d7fa35af8e9e3ea5fa
       </list>
     </option>
   </component>
@@ -204,7 +439,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="db" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 04e9ac09424e14b64e6115d7fa35af8e9e3ea5fa
             </path>
             <path>
               <item name="gs-relational-data-access" type="b2602c69:ProjectViewProjectNode" />
@@ -212,6 +451,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="hello" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -247,10 +487,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="trainapp" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 04e9ac09424e14b64e6115d7fa35af8e9e3ea5fa
             </path>
             <path>
               <item name="gs-relational-data-access" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="SmartBart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gs-relational-data-access" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartBart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -327,21 +582,6 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-      <method />
-    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -365,6 +605,7 @@
     <option name="totallyTimeSpent" value="4850000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="23" width="1440" height="825" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -400,6 +641,65 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+=======
+    <frame x="0" y="23" width="1440" height="819" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32885906" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
+      <window_info anchor="right" id="Gradle" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Gradle" order="3" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Bean Validation" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+>>>>>>> 04e9ac09424e14b64e6115d7fa35af8e9e3ea5fa
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,13 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="193" selection-start-column="193" selection-end-column="193" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/route_help.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="209" selection-start-column="209" selection-end-column="209" />
         </state>
       </provider>
     </entry>
@@ -766,6 +1059,135 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
           <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/TrainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TrainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/StationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/route_help.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="209" selection-start-column="209" selection-end-column="209" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/RoutesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/RequestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/ResourceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.jar!/org/json/simple/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20180130/json-20180130.jar!/org/json/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="228" column="18" selection-start-line="228" selection-start-column="18" selection-end-line="228" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/RouteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

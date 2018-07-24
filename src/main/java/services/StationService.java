@@ -1,15 +1,10 @@
 package services;
 
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import trainapp.Station;
+import models.Station;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
-
-import java.sql.*;
 
 
 /**
