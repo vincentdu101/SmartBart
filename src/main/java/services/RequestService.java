@@ -2,7 +2,11 @@ package services;
 
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +37,34 @@ public class RequestService {
 
         String resultString = result.toString();
         return resultString.length() > 0 ? resultString.substring(0, resultString.length() - 1) : resultString;
+    }
+
+    public String getRequestContent(String fullPath) {
+        String output;
+        String content = "";
+
+        try {
+            URL url = new URL(fullPath);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Accept", "application/json");
+
+            if (connection.getResponseCode() != 200) {
+                throw new RuntimeException("Failed http error code " +
+                        connection.getResponseCode());
+            }
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    connection.getInputStream()
+            ));
+
+            while ((output = br.readLine()) != null) {
+                content += output;
+            }
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+        return content;
     }
 
 }

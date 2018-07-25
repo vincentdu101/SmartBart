@@ -11,24 +11,27 @@ import services.TrainStationProgressService;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import java.util.List;
+
 /**
  *
  * @author vincentdu
  */
 public class Station implements Serializable {
 
-    Integer id;
-    String description = "Train Station";
-    Integer nextNorthStationId;
-    Integer nextSouthStationId;
-    LocalDateTime createdAt;
-    LocalDateTime modifiedAt;
-    StationMonitor stationMonitor;
-    StationService stationService;
-    TrainMonitor trainMonitor;
-    TrainStationProgressService trainStationProgressService;
-    Boolean trainStationed = false;
-    Train currentTrain;
+    private Integer id;
+    private String description = "Train Station";
+    private Integer nextNorthStationId;
+    private Integer nextSouthStationId;
+    private LocalDateTime createdAt;
+    private LocalDateTime modifiedAt;
+    private StationMonitor stationMonitor;
+    private StationService stationService;
+    private TrainMonitor trainMonitor;
+    private TrainStationProgressService trainStationProgressService;
+    private Boolean trainStationed = false;
+    private Train currentTrain;
+    private List<Etd> etds;
 
 
     public Station(){}
