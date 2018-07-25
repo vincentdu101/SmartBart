@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class RouteService {
@@ -41,7 +40,7 @@ public class RouteService {
         } catch(Exception ex) {
             ex.printStackTrace();
         }
-        return null;
+        return Collections.emptyList();
     }
 
 
