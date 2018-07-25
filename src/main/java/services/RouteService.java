@@ -1,9 +1,14 @@
 package services;
 
 import models.Route;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 @Service
@@ -17,8 +22,14 @@ public class RouteService {
     private List<Route> convertRoutesToList(String content) {
         JSONObject jsonObject = new JSONObject(content);
         JSONObject root = (JSONObject) jsonObject.get("root");
-        System.out.println(root.get("routes"));
-        return null;
+        JSONObject routes = (JSONObject) root.get("routes");
+        JSONArray route = routes.getJSONArray("route");
+        List<Route> convertedRoutes = new ArrayList<>();
+        while(route.iterator().hasNext()) {
+            JSONObject routeRow = (JSONObject) route.iterator().next();
+            convertedRoutes.add(new Route(routeRow));
+        }
+        return convertedRoutes;
     }
 
     public List<Route> getActiveRoutes() {

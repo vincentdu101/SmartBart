@@ -14,15 +14,12 @@ import services.TrainStationProgressService;
  */
 public class NorthAStation extends Station {
 
-    public NorthAStation(StationService stationService,
-                         StationMonitor stationMonitor,
-                         TrainMonitor trainMonitor,
-                         TrainStationProgressService trainStationProgressService) {
-        this.trainMonitor = trainMonitor;
-        this.stationService = stationService;
-        this.stationMonitor = stationMonitor;
-        this.trainStationProgressService = trainStationProgressService;
-        setupStation("North A Station");
+    public NorthAStation() {
+        // this.trainMonitor = trainMonitor;
+        // this.stationService = stationService;
+        // this.stationMonitor = stationMonitor;
+        // this.trainStationProgressService = trainStationProgressService;
+        // setupStation("North A Station");
     }
 
 

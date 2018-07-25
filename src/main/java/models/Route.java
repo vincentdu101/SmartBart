@@ -1,29 +1,41 @@
 package models;
 
+import org.json.JSONObject;
+
 public class Route {
 
     private String name;
     private String abbr;
     private String routeID;
     private int number;
-    private Station origin;
-    private Station destination;
+    private String origin;
+    private String destination;
     private int holidays;
-    private int num_stns;
+    private int numStns;
 
     public Route() {}
 
-    public Route clone(Route route) {
-        this.name = route.getName();
-        this.abbr = route.getAbbr();
-        this.routeID = route.getRouteID();
-        this.number = route.getNumber();
-        this.origin = route.getOrigin();
-        this.destination = route.getDestination();
-        this.holidays = route.getHolidays();
-        this.num_stns = route.getNumStns();
+    public Route(JSONObject route) {
+        this.name = (String) route.get("name");
+        this.abbr = (String) route.get("abbr");
+        this.routeID = (String) route.get("routeID");
+        this.number = Integer.parseInt((String)route.get("number"));
 
-        return this;
+        if (route.has("origin")) {
+            this.origin = (String) route.get("origin");
+        }
+
+        if (route.has("destination")) {
+            this.destination = (String) route.get("destination");
+        }
+
+        if (route.has("holidays")) {
+            this.holidays = Integer.parseInt((String)route.get("holidays"));
+        }
+
+        if (route.has("num_stns")) {
+            this.numStns = Integer.parseInt((String)route.get("num_stns"));
+        }
     }
 
     public String getName() {
@@ -58,19 +70,19 @@ public class Route {
         this.number = number;
     }
 
-    public Station getOrigin() {
+    public String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(Station origin) {
+    public void setOrigin(String origin) {
         this.origin = origin;
     }
 
-    public Station getDestination() {
+    public String getDestination() {
         return destination;
     }
 
-    public void setDestination(Station destination) {
+    public void setDestination(String destination) {
         this.destination = destination;
     }
 
@@ -83,10 +95,10 @@ public class Route {
     }
 
     public int getNumStns() {
-        return num_stns;
+        return numStns;
     }
 
-    public void setNum_stns(int num_stns) {
-        this.num_stns = num_stns;
+    public void setNumStns(int num_stns) {
+        this.numStns = num_stns;
     }
 }
