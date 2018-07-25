@@ -2,100 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31a72ed3-846c-4585-8a87-756680b37f1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/RoutesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Route.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/RequestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/RouteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gs-relational-data-access.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gs-relational-data-access.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Greeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Greeting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/GreetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GreetingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/SeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SeatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/StationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/TrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ResourceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/SeatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SeatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/StationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/StationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/TrainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TrainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/TrainStationProgressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TrainStationProgressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Iterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Iterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Monitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthAStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthAStation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthATrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthATrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthBTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthBTrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthCTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthCTrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/NorthTrainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/NorthTrainFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SeatType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SeatType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthATrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthATrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthBTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthBTrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthCTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthCTrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/SouthTrainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SouthTrainFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Station.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/StationMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/StationMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/StationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/StationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/Train.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Train.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trainapp/TrainStationProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/TrainStationProgress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/Greeting.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/GreetingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/SeatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/StationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/TrainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hello/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/ResourceService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ResourceService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/ResourceService$StationMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ResourceService$StationMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/ResourceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ResourceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/SeatService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SeatService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/SeatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SeatService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/StationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/StationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/TrainService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TrainService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/TrainStationProgressService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TrainStationProgressService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Iterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Monitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthAStation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthATrain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthBTrain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthCTrain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/NorthTrainFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Seat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SeatType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthATrain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthBTrain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthCTrain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/SouthTrainFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Station.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/StationMonitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/StationState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/Train.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainMonitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trainapp/TrainStationProgress.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/gs-relational-data-access-0.1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/RouteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/RouteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/bart_data/route_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/bart_data/route_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/bart_data/route_schedule.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/bart_data/route_schedule.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/bart_data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/bart_data/routes.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,8 +53,55 @@
           <file leaf-file-name="Route.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/models/Route.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+                <state relative-caret-position="375">
+                  <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#367#368#0" expanded="true" />
+                    <element signature="e#394#395#0" expanded="true" />
+                    <element signature="e#434#435#0" expanded="true" />
+                    <element signature="e#466#467#0" expanded="true" />
+                    <element signature="e#497#498#0" expanded="true" />
+                    <element signature="e#524#525#0" expanded="true" />
+                    <element signature="e#564#565#0" expanded="true" />
+                    <element signature="e#596#597#0" expanded="true" />
+                    <element signature="e#630#631#0" expanded="true" />
+                    <element signature="e#660#661#0" expanded="true" />
+                    <element signature="e#706#707#0" expanded="true" />
+                    <element signature="e#744#745#0" expanded="true" />
+                    <element signature="e#774#775#0" expanded="true" />
+                    <element signature="e#803#804#0" expanded="true" />
+                    <element signature="e#844#845#0" expanded="true" />
+                    <element signature="e#880#881#0" expanded="true" />
+                    <element signature="e#914#915#0" expanded="true" />
+                    <element signature="e#943#944#0" expanded="true" />
+                    <element signature="e#988#989#0" expanded="true" />
+                    <element signature="e#1024#1025#0" expanded="true" />
+                    <element signature="e#1063#1064#0" expanded="true" />
+                    <element signature="e#1097#1098#0" expanded="true" />
+                    <element signature="e#1152#1153#0" expanded="true" />
+                    <element signature="e#1198#1199#0" expanded="true" />
+                    <element signature="e#1230#1231#0" expanded="true" />
+                    <element signature="e#1261#1262#0" expanded="true" />
+                    <element signature="e#1306#1307#0" expanded="true" />
+                    <element signature="e#1346#1347#0" expanded="true" />
+                    <element signature="e#1378#1379#0" expanded="true" />
+                    <element signature="e#1409#1410#0" expanded="true" />
+                    <element signature="e#1454#1455#0" expanded="true" />
+                    <element signature="e#1494#1495#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Stations.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/models/Stations.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="420">
+                  <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+                  <folding>
+                    <element signature="e#552#553#0" expanded="true" />
+                    <element signature="e#590#591#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -151,8 +109,8 @@
           <file leaf-file-name="RouteService.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/services/RouteService.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="488">
-                  <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+                <state relative-caret-position="162">
+                  <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -190,24 +148,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="route_help.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/route_help.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="209" selection-start-column="209" selection-end-column="209" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="StationService.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/services/StationService.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -215,13 +155,31 @@
           <file leaf-file-name="RoutesController.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/controllers/RoutesController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+                <state relative-caret-position="285">
+                  <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#550#551#0" expanded="true" />
                     <element signature="e#571#572#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="routes.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/routes.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-9">
+                  <caret column="1" selection-start-column="1" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="route_info.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/route_info.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-41">
+                  <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -249,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/help.json" />
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/real_times_estimate.json" />
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/filtered_real_time_estimates.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/routes.json" />
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/route_info.json" />
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/real_time_help.json" />
         <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/route_help.json" />
@@ -272,6 +229,9 @@
         <option value="$PROJECT_DIR$/beans.xml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/Application.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/bart_data/routes.json" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Stations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Route.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/RouteService.java" />
       </list>
     </option>
@@ -295,7 +255,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="832" />
+    <option name="height" value="819" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -364,6 +324,30 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gs-relational-data-access" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartBart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gs-relational-data-access" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartBart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gs-relational-data-access" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartBart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="bart_data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -458,7 +442,7 @@
     <option name="totallyTimeSpent" value="1471000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="819" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
@@ -473,7 +457,7 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15694444" />
       <window_info anchor="bottom" id="Inspection Results" weight="0.32885906" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
       <window_info anchor="right" id="Gradle" />
@@ -542,20 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="1218" selection-start-column="1218" selection-end-column="1218" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/routes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1733" lean-forward="true" selection-start-column="1733" selection-end-column="1733" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/route_info.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="598" selection-start-column="598" selection-end-column="598" />
         </state>
       </provider>
     </entry>
@@ -678,13 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/TrainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TrainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -710,18 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="209" selection-start-column="209" selection-end-column="209" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/RoutesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#550#551#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -766,13 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Route.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.jar!/org/json/simple/JSONObject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -797,10 +741,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/TrainService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/TrainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/routes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Stations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding>
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/bart_data/route_info.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/RoutesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#744#745#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#1024#1025#0" expanded="true" />
+            <element signature="e#1063#1064#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1152#1153#0" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+            <element signature="e#1346#1347#0" expanded="true" />
+            <element signature="e#1378#1379#0" expanded="true" />
+            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1454#1455#0" expanded="true" />
+            <element signature="e#1494#1495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/RouteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+        <state relative-caret-position="162">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
