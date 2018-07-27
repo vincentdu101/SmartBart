@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import models.Route;
-import org.springframework.web.bind.annotation.ResponseBody;
 import services.RouteService;
 import java.util.List;
 
@@ -21,7 +19,12 @@ public class RoutesController extends MainController {
     @RequestMapping(value="/active")
     public ResponseEntity<List<Route>> getActiveRoutes() {
         List<Route> routes = routeService.getActiveRoutes();
-        System.out.println(routes);
+        return new ResponseEntity<>(routes, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/all")
+    public ResponseEntity<List<Route>> getAllRoutes() {
+        List<Route> routes = routeService.getAllRoutes();
         return new ResponseEntity<>(routes, HttpStatus.OK);
     }
 

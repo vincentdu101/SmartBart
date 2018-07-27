@@ -24,6 +24,30 @@ public class RequestService {
         return parameters;
     }
 
+    public Map<String, String> generateUrlWithParameter(String command, String param, String value) {
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put("cmd", command);
+        parameters.put("json", "y");
+        parameters.put("key", key);
+        parameters.put(param, value);
+        return parameters;
+    }
+
+    public String getParamsStringWithExtraParam(String command, String param, String value) throws UnsupportedEncodingException {
+        Map<String, String> params = generateUrlWithParameter(command, param, value);
+        StringBuilder result = new StringBuilder();
+
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+            result.append("&");
+        }
+
+        String resultString = result.toString();
+        return resultString.length() > 0 ? resultString.substring(0, resultString.length() - 1) : resultString;
+    }
+
     public String getParamsString(String command) throws UnsupportedEncodingException {
         Map<String, String> params = generateUrlParameters(command);
         StringBuilder result = new StringBuilder();

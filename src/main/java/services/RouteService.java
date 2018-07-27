@@ -25,8 +25,10 @@ public class RouteService {
         JSONObject routes = (JSONObject) root.get("routes");
         JSONArray route = routes.getJSONArray("route");
         List<Route> convertedRoutes = new ArrayList<>();
-        while(route.iterator().hasNext()) {
-            JSONObject routeRow = (JSONObject) route.iterator().next();
+        System.out.println(route);
+        for (int i = 0; i < route.length(); i++) {
+            JSONObject routeRow = (JSONObject) route.get(i);
+            System.out.println(routeRow);
             convertedRoutes.add(new Route(routeRow));
         }
         return convertedRoutes;
@@ -45,8 +47,11 @@ public class RouteService {
 
     public List<Route> getAllRoutes() {
         try {
-            String fullPath = path + "?" + requestService.getParamsString("routeinfo");
+            String fullPath = path + "?" + requestService.getParamsStringWithExtraParam(
+                    "routeinfo", "route", "8"
+            );
             String content = requestService.getRequestContent(fullPath);
+            System.out.println(content);
             return convertRoutesToList(content);
         } catch(Exception ex) {
             ex.printStackTrace();
