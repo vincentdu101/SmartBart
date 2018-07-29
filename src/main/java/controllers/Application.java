@@ -29,6 +29,7 @@ public class Application implements CommandLineRunner {
     private StationController stationController;
     private TrainController trainController;
     private RoutesController routesController;
+    private PlannerController plannerController;
     private StationService stationService;
     private TrainMonitor trainMonitor;
     private TrainStationProgressService trainStationProgressService;
@@ -38,6 +39,7 @@ public class Application implements CommandLineRunner {
     private TrainFactory southFactory;
     private RouteService routeService;
     private RequestService requestService;
+    private PlannerService plannerService;
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -48,11 +50,11 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         routeService = (RouteService) context.getBean("routeService");
+        plannerService = (PlannerService) context.getBean("plannerService");
         requestService = (RequestService) context.getBean("requestService");
 
-        //stationController = (StationController) context.getBean("stationController");
-        //trainController = (TrainController) context.getBean("trainController");
         routesController = (RoutesController) context.getBean("routesController");
+        plannerController = (PlannerController) context.getBean("plannerController");
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new com.mysql.jdbc.Driver());

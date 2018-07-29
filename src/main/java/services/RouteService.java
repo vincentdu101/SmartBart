@@ -22,7 +22,6 @@ public class RouteService {
 
     private List<Route> convertRoutesToList(JSONArray route) {
         List<Route> convertedRoutes = new ArrayList<>();
-        System.out.println(route);
         for (int i = 0; i < route.length(); i++) {
             JSONObject routeRow = (JSONObject) route.get(i);
             convertedRoutes.add(new Route(routeRow));

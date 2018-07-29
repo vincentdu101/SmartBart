@@ -1,5 +1,7 @@
 package models;
 
+import org.json.JSONObject;
+
 public class Planner {
 
     private String origin;
@@ -9,12 +11,11 @@ public class Planner {
 
     public Planner() {}
 
-    public Planner clone(Planner planner) {
-        this.origin = planner.getOrigin();
-        this.destination = planner.getDestination();
-        this.schedNum = planner.getSchedNum();
-        this.schedule = planner.getSchedule();
-        return this;
+    public Planner(JSONObject root) {
+        this.origin = root.getString("origin");
+        this.destination = root.getString("destination");
+        this.schedNum = Integer.parseInt(root.getString("sched_num"));
+//        this.schedule = planner.getSchedule();
     }
 
     public String getOrigin() {

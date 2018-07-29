@@ -10,6 +10,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 @Service
 public class RequestService {
@@ -33,8 +34,35 @@ public class RequestService {
         return parameters;
     }
 
+    public Map<String, String> generateUrlParametersWithMap(String command, Map<String, String> params) {
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put("cmd", command);
+        parameters.put("json", "y");
+        parameters.put("key", key);
+        for (String param : params.keySet()) {
+            parameters.put(param, params.get(param));
+        }
+        return parameters;
+    }
+
     public String getParamsStringWithExtraParam(String command, String param, String value) throws UnsupportedEncodingException {
         Map<String, String> params = generateUrlWithParameter(command, param, value);
+        StringBuilder result = new StringBuilder();
+
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+            result.append("&");
+        }
+
+        String resultString = result.toString();
+        return resultString.length() > 0 ? resultString.substring(0, resultString.length() - 1) : resultString;
+    }
+
+
+    public String getParamsStringWithMap(String command, Map<String, String> inputParams) throws UnsupportedEncodingException {
+        Map<String, String> params = generateUrlParametersWithMap(command, inputParams);
         StringBuilder result = new StringBuilder();
 
         for (Map.Entry<String, String> entry : params.entrySet()) {
