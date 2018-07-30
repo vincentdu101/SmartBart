@@ -29,6 +29,7 @@ public class PlannerService {
             Map<String, String> input = convertPlannerParams(orig, dest);
             String fullPath = path + "?" + requestService.getParamsStringWithMap("arrive", input);
             String content = requestService.getRequestContent(fullPath);
+            System.out.println(content);
             JSONObject jsonObject = new JSONObject(content);
             JSONObject root = jsonObject.getJSONObject("root");
             return new Planner(root);

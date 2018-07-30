@@ -1,43 +1,50 @@
 package models;
 
-import java.time.LocalDate;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Schedule {
 
-    private LocalDate date;
-    private LocalDateTime time;
+    private LocalDateTime datetime;
     private int before;
     private int after;
-    private List<Train> request;
+    private List<Trip> request;
+    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern( "MMM dd, yyyy hh:mm a");
 
     public Schedule() {}
 
-    public Schedule clone(Schedule schedule) {
-        this.date = schedule.getDate();
-        this.time = schedule.getTime();
-        this.before = schedule.getBefore();
-        this.after = schedule.getAfter();
-        this.request = schedule.getRequest();
-        return this;
+    public Schedule(JSONObject schedule) {
+        try {
+            this.datetime = LocalDateTime.parse(schedule.getString("date") + " " + schedule.getString("time"), dateFormat);
+            this.before = Integer.parseInt(schedule.getString("before"));
+            this.after = Integer.parseInt(schedule.getString("after"));
+            this.request = convertToTrips(schedule.getJSONObject("request").getJSONArray("trip"));
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public LocalDate getDate() {
-        return date;
+    private List<Trip> convertToTrips(JSONArray trips) {
+        List<Trip> convertedTrips = new ArrayList<>();
+        for (int i = 0; i < trips.length(); i++) {
+            JSONObject tripRow = trips.getJSONObject(i);
+            convertedTrips.add(new Trip(tripRow));
+        }
+        return convertedTrips;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public String getDateTime() {
+        return datetime.toLocalTime().toString();
     }
 
-    public LocalDateTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalDateTime time) {
-        this.time = time;
+    public void setDateTime(LocalDateTime datetime) {
+        this.datetime = datetime;
     }
 
     public int getBefore() {
@@ -56,11 +63,11 @@ public class Schedule {
         this.after = after;
     }
 
-    public List<Train> getRequest() {
+    public List<Trip> getRequest() {
         return request;
     }
 
-    public void setRequest(List<Train> request) {
+    public void setRequest(List<Trip> request) {
         this.request = request;
     }
 }

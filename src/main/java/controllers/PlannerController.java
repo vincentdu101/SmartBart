@@ -20,8 +20,7 @@ public class PlannerController {
 
     @RequestMapping(value="/arrive/all")
     public ResponseEntity<Planner> getAllArrivalPlans(
-        @RequestParam(value="orig") String orig,
-        @RequestParam(value="dest") String dest
+        @RequestParam String orig, @RequestParam String dest
     ) {
         Planner planner = plannerService.getAllArrivalPlans(orig, dest);
         return new ResponseEntity<>(planner, HttpStatus.OK);

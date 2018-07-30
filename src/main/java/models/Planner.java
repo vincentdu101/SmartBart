@@ -15,7 +15,7 @@ public class Planner {
         this.origin = root.getString("origin");
         this.destination = root.getString("destination");
         this.schedNum = Integer.parseInt(root.getString("sched_num"));
-//        this.schedule = planner.getSchedule();
+        this.schedule = new Schedule(root.getJSONObject("schedule"));
     }
 
     public String getOrigin() {
