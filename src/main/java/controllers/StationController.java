@@ -9,6 +9,7 @@ import models.Station;
 import java.util.List;
 
 @Controller
+
 public class StationController extends MainController {
 
     @Autowired
@@ -29,7 +30,7 @@ public class StationController extends MainController {
     public void updateStationMessage() {
         try {
             this.template.convertAndSend("/topic/updateStations", new Greeting("Fire"));
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }

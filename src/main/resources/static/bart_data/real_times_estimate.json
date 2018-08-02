@@ -1,1 +1,208 @@
-{"?xml":{"@version":"1.0","@encoding":"utf-8"},"root":{"@id":"1","uri":{"#cdata-section":"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=12th&json=y"},"date":"07/18/2018","time":"09:20:46 AM PDT","station":[{"name":"12th St. Oakland City Center","abbr":"12TH","etd":[{"destination":"Antioch","abbreviation":"ANTC","limited":"0","estimate":[{"minutes":"4","platform":"3","direction":"North","length":"10","color":"YELLOW","hexcolor":"#ffff33","bikeflag":"1","delay":"0"},{"minutes":"19","platform":"3","direction":"North","length":"10","color":"YELLOW","hexcolor":"#ffff33","bikeflag":"1","delay":"0"},{"minutes":"34","platform":"3","direction":"North","length":"10","color":"YELLOW","hexcolor":"#ffff33","bikeflag":"1","delay":"0"}]},{"destination":"Fremont","abbreviation":"FRMT","limited":"0","estimate":[{"minutes":"12","platform":"2","direction":"South","length":"4","color":"ORANGE","hexcolor":"#ff9933","bikeflag":"1","delay":"0"},{"minutes":"27","platform":"2","direction":"South","length":"4","color":"ORANGE","hexcolor":"#ff9933","bikeflag":"1","delay":"0"},{"minutes":"42","platform":"2","direction":"South","length":"4","color":"ORANGE","hexcolor":"#ff9933","bikeflag":"1","delay":"0"}]},{"destination":"Millbrae","abbreviation":"MLBR","limited":"0","estimate":[{"minutes":"2","platform":"2","direction":"South","length":"8","color":"RED","hexcolor":"#ff0000","bikeflag":"1","delay":"0"},{"minutes":"17","platform":"2","direction":"South","length":"9","color":"RED","hexcolor":"#ff0000","bikeflag":"1","delay":"0"},{"minutes":"32","platform":"2","direction":"South","length":"10","color":"RED","hexcolor":"#ff0000","bikeflag":"1","delay":"0"}]},{"destination":"Richmond","abbreviation":"RICH","limited":"0","estimate":[{"minutes":"5","platform":"1","direction":"North","length":"6","color":"ORANGE","hexcolor":"#ff9933","bikeflag":"1","delay":"0"},{"minutes":"12","platform":"1","direction":"North","length":"9","color":"RED","hexcolor":"#ff0000","bikeflag":"1","delay":"0"},{"minutes":"19","platform":"1","direction":"North","length":"6","color":"ORANGE","hexcolor":"#ff9933","bikeflag":"1","delay":"0"}]},{"destination":"SF Airport","abbreviation":"SFIA","limited":"0","estimate":[{"minutes":"11","platform":"2","direction":"South","length":"10","color":"YELLOW","hexcolor":"#ffff33","bikeflag":"1","delay":"61"},{"minutes":"25","platform":"2","direction":"South","length":"10","color":"YELLOW","hexcolor":"#ffff33","bikeflag":"1","delay":"0"},{"minutes":"40","platform":"2","direction":"South","length":"10","color":"YELLOW","hexcolor":"#ffff33","bikeflag":"1","delay":"0"}]}]}],"message":""}}
+{
+    "?xml": {
+        "@version": "1.0",
+        "@encoding": "utf-8"
+    },
+    "root": {
+        "@id": "1",
+        "uri": {
+            "#cdata-section": "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=12th&json=y"
+        },
+        "date": "07/18/2018",
+        "time": "09:20:46 AM PDT",
+        "station": [
+            {
+                "name": "12th St. Oakland City Center",
+                "abbr": "12TH",
+                "etd": [
+                    {
+                        "destination": "Antioch",
+                        "abbreviation": "ANTC",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "4",
+                                "platform": "3",
+                                "direction": "North",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "19",
+                                "platform": "3",
+                                "direction": "North",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "34",
+                                "platform": "3",
+                                "direction": "North",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "Fremont",
+                        "abbreviation": "FRMT",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "12",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "4",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "27",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "4",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "42",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "4",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "Millbrae",
+                        "abbreviation": "MLBR",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "2",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "8",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "17",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "9",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "32",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "Richmond",
+                        "abbreviation": "RICH",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "5",
+                                "platform": "1",
+                                "direction": "North",
+                                "length": "6",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "12",
+                                "platform": "1",
+                                "direction": "North",
+                                "length": "9",
+                                "color": "RED",
+                                "hexcolor": "#ff0000",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "19",
+                                "platform": "1",
+                                "direction": "North",
+                                "length": "6",
+                                "color": "ORANGE",
+                                "hexcolor": "#ff9933",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "destination": "SF Airport",
+                        "abbreviation": "SFIA",
+                        "limited": "0",
+                        "estimate": [
+                            {
+                                "minutes": "11",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "61"
+                            },
+                            {
+                                "minutes": "25",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            },
+                            {
+                                "minutes": "40",
+                                "platform": "2",
+                                "direction": "South",
+                                "length": "10",
+                                "color": "YELLOW",
+                                "hexcolor": "#ffff33",
+                                "bikeflag": "1",
+                                "delay": "0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "message": ""
+    }
+}
