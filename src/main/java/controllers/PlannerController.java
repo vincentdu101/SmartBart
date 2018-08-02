@@ -26,4 +26,12 @@ public class PlannerController {
         return new ResponseEntity<>(planner, HttpStatus.OK);
     }
 
+    @RequestMapping(value="/departing/all")
+    public ResponseEntity<Planner> getAllDepartingPlans(
+            @RequestParam String orig, @RequestParam String dest
+    ) {
+        Planner planner = plannerService.getAllDepartingPlans(orig, dest);
+        return new ResponseEntity<>(planner, HttpStatus.OK);
+    }
+
 }

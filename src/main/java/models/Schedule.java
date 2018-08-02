@@ -3,25 +3,26 @@ package models;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class Schedule {
 
-    private LocalDateTime datetime;
+    private Date datetime;
     private int before;
     private int after;
     private List<Trip> request;
-    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern( "MMM dd, yyyy hh:mm a");
+    private SimpleDateFormat format = new SimpleDateFormat("MMM dd, yyyy hh:mm aaa", Locale.US);
 
     public Schedule() {}
 
     public Schedule(JSONObject schedule) {
         try {
-            this.datetime = LocalDateTime.parse(schedule.getString("date") + " " + schedule.getString("time"), dateFormat);
+            this.datetime = format.parse(schedule.getString("date") + " " + schedule.getString("time"));
             this.before = Integer.parseInt(schedule.getString("before"));
             this.after = Integer.parseInt(schedule.getString("after"));
             this.request = convertToTrips(schedule.getJSONObject("request").getJSONArray("trip"));
@@ -40,10 +41,10 @@ public class Schedule {
     }
 
     public String getDateTime() {
-        return datetime.toLocalTime().toString();
+        return datetime.toString();
     }
 
-    public void setDateTime(LocalDateTime datetime) {
+    public void setDateTime(Date datetime) {
         this.datetime = datetime;
     }
 
