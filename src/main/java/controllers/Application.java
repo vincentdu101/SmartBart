@@ -52,9 +52,11 @@ public class Application implements CommandLineRunner {
         routeService = (RouteService) context.getBean("routeService");
         plannerService = (PlannerService) context.getBean("plannerService");
         requestService = (RequestService) context.getBean("requestService");
+        stationService = (StationService) context.getBean("stationService");
 
         routesController = (RoutesController) context.getBean("routesController");
         plannerController = (PlannerController) context.getBean("plannerController");
+        stationController = (StationController) context.getBean("stationController");
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new com.mysql.jdbc.Driver());

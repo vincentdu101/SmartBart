@@ -1,5 +1,9 @@
 package models;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Etd {
@@ -17,6 +21,19 @@ public class Etd {
         this.estimates = etd.getEstimates();
         this.limited = etd.getLimited();
         return this;
+    }
+
+    public Etd(JSONObject etd) {
+        this.destination = etd.getString("destination");
+        this.abbreviation = etd.getString("abbreviation");
+        this.limited = etd.getInt("limited");
+        this.estimates = new ArrayList<>();
+
+        JSONArray estimates = etd.getJSONArray("estimate");
+        for (int i = 0; i < estimates.length(); i++) {
+            JSONObject estimate = estimates.getJSONObject(i);
+            this.estimates.add(new Estimate(estimate));
+        }
     }
 
 

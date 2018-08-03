@@ -1,5 +1,7 @@
 package models;
 
+import org.json.JSONObject;
+
 public class Estimate {
 
     private int minutes;
@@ -11,14 +13,13 @@ public class Estimate {
 
     public Estimate() {}
 
-    public Estimate clone(Estimate estimate) {
-        this.minutes = estimate.getMinutes();
-        this.platform = estimate.getPlatform();
-        this.direction = estimate.getDirection();
-        this.length = estimate.getLength();
-        this.bikeflag = estimate.isBikeflag();
-        this.delay = estimate.getDelay();
-        return this;
+    public Estimate(JSONObject estimate) {
+        this.minutes = Integer.parseInt(estimate.getString("minutes"));
+        this.platform = Integer.parseInt(estimate.getString("platform"));
+        this.direction = estimate.getString("direction");
+        this.length = Integer.parseInt(estimate.getString("length"));
+        this.bikeflag = estimate.getString("bikeflag").equals("1");
+        this.delay = Integer.parseInt(estimate.getString("delay"));
     }
 
     public int getMinutes() {
