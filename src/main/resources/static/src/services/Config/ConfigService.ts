@@ -1,1 +1,1 @@
-export const staticFilteredEstimates = "http://localhost:8080/arrive/all";
+export const staticFilteredEstimates = "http://localhost:8080/planner/arrive/all";

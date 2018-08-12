@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +15,9 @@ import org.springframework.context.annotation.ComponentScan;
 import java.util.*;
 
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import services.*;
 import models.*;
 
@@ -71,6 +75,26 @@ public class Application implements CommandLineRunner {
         setupStations();
         setupTrains();
         startTrains();
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+
+        return new WebMvcConfigurerAdapter() {
+
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("POST", "GET",  "PUT", "OPTIONS", "DELETE")
+                        .allowedHeaders("X-Auth-Token", "Content-Type")
+                        .exposedHeaders("custom-header1", "custom-header2")
+                        .allowCredentials(false)
+                        .maxAge(4800);
+            }
+
+        };
+
     }
 
     public void setupTables() {

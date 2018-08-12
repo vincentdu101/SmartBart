@@ -11,7 +11,7 @@ class Table extends React.Component {
     }
 
     public componentDidMount() {
-        fetch(ConfigService.staticFilteredEstimates).then(results => {
+        fetch(ConfigService.staticFilteredEstimates + "?orig=24th&dest=rock").then(results => {
             return results.json();
         }).then(data => {
             //  
