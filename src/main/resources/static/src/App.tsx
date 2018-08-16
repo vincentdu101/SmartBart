@@ -1,9 +1,8 @@
 import * as React from 'react';
 import './App.css';
-
-import Table from "./components/Table/Table";
-
 import logo from './logo.svg';
+
+import PlannerTable from "./components/Table/PlannerTable";
 
 class App extends React.Component {
   public render() {
@@ -14,7 +13,7 @@ class App extends React.Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          <Table />
+          <PlannerTable />
         </p>
       </div>
     );
