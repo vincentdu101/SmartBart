@@ -2,22 +2,23 @@ import * as React from "react";
 import * as ConfigService from "../../services/Config/ConfigService";
 import "./PlannerTable.scss";
 
-import { Table } from "reactstrap";
+// import { Table } from "reactstrap";
 
 interface IState {
     plans: any;
 }
 
-  
-
-class PlannerTable extends React.Component<void, IState> {
+class PlannerTable extends React.Component<{}, IState> {
 
     constructor(props: any) {
         super(props);
-        this.state = {plans: []};
+        this.state = {
+            plans: {}
+        };
     }
 
     public componentDidMount() {
+        this.setState({plans: {}});
         fetch(ConfigService.staticFilteredEstimates + "?orig=24th&dest=rock").then(results => {
             return results.json();
         }).then(data => {
@@ -28,18 +29,19 @@ class PlannerTable extends React.Component<void, IState> {
 
     public render() {
         return (
-            <Table>
-                <thead>
-                    <tr><td>Test</td></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            {this.state.plans}
-                        </td>
-                    </tr>
-                </tbody>
-            </Table>
+            <div>test</div>
+            // <Table>
+            //     <thead>
+            //         <tr><td>Test</td></tr>
+            //     </thead>
+            //     <tbody>
+            //         <tr>
+            //             <td>
+            //                 {this.state.plans}
+            //             </td>
+            //         </tr>
+            //     </tbody>
+            // </Table>
         );
     }
 
