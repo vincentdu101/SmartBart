@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ConfigService from "../../services/Config/ConfigService";
 import "./PlannerTable.scss";
 
-// import { Table } from "reactstrap";
+import { Table } from "reactstrap";
 
 interface IState {
     plans: any;
@@ -22,26 +22,29 @@ class PlannerTable extends React.Component<{}, IState> {
         fetch(ConfigService.staticFilteredEstimates + "?orig=24th&dest=rock").then(results => {
             return results.json();
         }).then(data => {
-            debugger;
+            console.log(data);
             this.setState({plans: data});
         });
     }
 
     public render() {
         return (
-            <div>test</div>
-            // <Table>
-            //     <thead>
-            //         <tr><td>Test</td></tr>
-            //     </thead>
-            //     <tbody>
-            //         <tr>
-            //             <td>
-            //                 {this.state.plans}
-            //             </td>
-            //         </tr>
-            //     </tbody>
-            // </Table>
+            <Table>
+                <thead>
+                    <tr>
+                        <td>Origin</td>
+                        <td>Destination</td>
+                        <td>Origin</td>
+                        <td>Origin</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{this.state.plans.origin}</td>
+                        <td>{this.state.plans.destination}</td>
+                    </tr>
+                </tbody>
+            </Table>
         );
     }
 
