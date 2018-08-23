@@ -1,1 +1,52 @@
-{"origin":"24TH","destination":"ROCK","schedNum":47,"schedule":{"before":2,"after":2,"request":[{"origin":"24TH","destination":"ROCK","fare":4.7,"origDateTime":"Wed Aug 01 23:09:00 PDT 2018","destDateTime":"Wed Aug 01 23:39:00 PDT 2018","clipper":1.55,"tripTime":30,"co2":9.84},{"origin":"24TH","destination":"ROCK","fare":4.7,"origDateTime":"Wed Aug 01 23:29:00 PDT 2018","destDateTime":"Wed Aug 01 23:59:00 PDT 2018","clipper":1.55,"tripTime":30,"co2":9.84},{"origin":"24TH","destination":"ROCK","fare":4.7,"origDateTime":"Wed Aug 01 23:49:00 PDT 2018","destDateTime":"Thu Aug 02 00:19:00 PDT 2018","clipper":1.55,"tripTime":30,"co2":9.84},{"origin":"24TH","destination":"ROCK","fare":4.7,"origDateTime":"Thu Aug 02 00:16:00 PDT 2018","destDateTime":"Thu Aug 02 00:49:00 PDT 2018","clipper":1.55,"tripTime":33,"co2":9.84}],"dateTime":"Thu Aug 02 00:01:00 PDT 2018"}}
+{
+    "origin": "24TH",
+    "destination": "ROCK",
+    "schedNum": 47,
+    "schedule": {
+        "before": 2,
+        "after": 2,
+        "request": [
+            {
+                "origin": "24TH",
+                "destination": "ROCK",
+                "fare": 4.7,
+                "origDateTime": "Wed Aug 01 23:09:00 PDT 2018",
+                "destDateTime": "Wed Aug 01 23:39:00 PDT 2018",
+                "clipper": 1.55,
+                "tripTime": 30,
+                "co2": 9.84
+            },
+            {
+                "origin": "24TH",
+                "destination": "ROCK",
+                "fare": 4.7,
+                "origDateTime": "Wed Aug 01 23:29:00 PDT 2018",
+                "destDateTime": "Wed Aug 01 23:59:00 PDT 2018",
+                "clipper": 1.55,
+                "tripTime": 30,
+                "co2": 9.84
+            },
+            {
+                "origin": "24TH",
+                "destination": "ROCK",
+                "fare": 4.7,
+                "origDateTime": "Wed Aug 01 23:49:00 PDT 2018",
+                "destDateTime": "Thu Aug 02 00:19:00 PDT 2018",
+                "clipper": 1.55,
+                "tripTime": 30,
+                "co2": 9.84
+            },
+            {
+                "origin": "24TH",
+                "destination": "ROCK",
+                "fare": 4.7,
+                "origDateTime": "Thu Aug 02 00:16:00 PDT 2018",
+                "destDateTime": "Thu Aug 02 00:49:00 PDT 2018",
+                "clipper": 1.55,
+                "tripTime": 33,
+                "co2": 9.84
+            }
+        ],
+        "dateTime": "Thu Aug 02 00:01:00 PDT 2018"
+    }
+}

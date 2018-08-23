@@ -2,7 +2,7 @@ import * as React from 'react';
 import './App.css';
 import logo from './logo.svg';
 
-import PlannerTable from "./components/Table/PlannerTable";
+import PlannerTable from "./components/PlannerTable/PlannerTable";
 
 class App extends React.Component {
   public render() {
@@ -12,9 +12,8 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          <PlannerTable />
-        </p>
+        
+        <PlannerTable />
       </div>
     );
   }

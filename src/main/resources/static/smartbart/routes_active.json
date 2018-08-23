@@ -1,1 +1,134 @@
-[{"name":"Antioch - SFIA/Millbrae","abbr":"ANTC-SFIA","routeID":"ROUTE 1","number":1,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Daly City - Dublin/Pleasanton","abbr":"DALY-DUBL","routeID":"ROUTE 12","number":12,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Daly City - Warm Springs/South Fremont","abbr":"DALY-WARM","routeID":"ROUTE 6","number":6,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Dublin/Pleasanton - Daly City","abbr":"DUBL-DALY","routeID":"ROUTE 11","number":11,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Warm Springs/South Fremont - Daly City","abbr":"WARM-DALY","routeID":"ROUTE 5","number":5,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Warm Springs/South Fremont - Richmond","abbr":"WARM-RICH","routeID":"ROUTE 3","number":3,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Millbrae/Daly City - Richmond","abbr":"MLBR-RICH","routeID":"ROUTE 8","number":8,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Richmond - Warm Springs/South Fremont","abbr":"RICH-WARM","routeID":"ROUTE 4","number":4,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Richmond - Daly City/Millbrae","abbr":"RICH-MLBR","routeID":"ROUTE 7","number":7,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Millbrae/SFIA - Antioch","abbr":"SFIA-ANTC","routeID":"ROUTE 2","number":2,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Coliseum - Oakland Int'l Airport","abbr":"COLS-OAKL","routeID":"ROUTE 19","number":19,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]},{"name":"Oakland Int'l Airport - Coliseum","abbr":"OAKL-COLS","routeID":"ROUTE 20","number":20,"origin":null,"destination":null,"holidays":0,"numStns":0,"stations":[]}]
+[
+    {
+        "name": "Antioch - SFIA/Millbrae",
+        "abbr": "ANTC-SFIA",
+        "routeID": "ROUTE 1",
+        "number": 1,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Daly City - Dublin/Pleasanton",
+        "abbr": "DALY-DUBL",
+        "routeID": "ROUTE 12",
+        "number": 12,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Daly City - Warm Springs/South Fremont",
+        "abbr": "DALY-WARM",
+        "routeID": "ROUTE 6",
+        "number": 6,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Dublin/Pleasanton - Daly City",
+        "abbr": "DUBL-DALY",
+        "routeID": "ROUTE 11",
+        "number": 11,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Warm Springs/South Fremont - Daly City",
+        "abbr": "WARM-DALY",
+        "routeID": "ROUTE 5",
+        "number": 5,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Warm Springs/South Fremont - Richmond",
+        "abbr": "WARM-RICH",
+        "routeID": "ROUTE 3",
+        "number": 3,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Millbrae/Daly City - Richmond",
+        "abbr": "MLBR-RICH",
+        "routeID": "ROUTE 8",
+        "number": 8,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Richmond - Warm Springs/South Fremont",
+        "abbr": "RICH-WARM",
+        "routeID": "ROUTE 4",
+        "number": 4,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Richmond - Daly City/Millbrae",
+        "abbr": "RICH-MLBR",
+        "routeID": "ROUTE 7",
+        "number": 7,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Millbrae/SFIA - Antioch",
+        "abbr": "SFIA-ANTC",
+        "routeID": "ROUTE 2",
+        "number": 2,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Coliseum - Oakland Int'l Airport",
+        "abbr": "COLS-OAKL",
+        "routeID": "ROUTE 19",
+        "number": 19,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    },
+    {
+        "name": "Oakland Int'l Airport - Coliseum",
+        "abbr": "OAKL-COLS",
+        "routeID": "ROUTE 20",
+        "number": 20,
+        "origin": null,
+        "destination": null,
+        "holidays": 0,
+        "numStns": 0,
+        "stations": []
+    }
+]
