@@ -3,6 +3,7 @@ import './App.css';
 import logo from './logo.svg';
 
 import PlannerTable from "./components/PlannerTable/PlannerTable";
+import DropdownInfo from "./components/Dropdown/DropdownInfo";
 
 class App extends React.Component {
   public render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         
+        <DropdownInfo />
         <PlannerTable />
       </div>
     );

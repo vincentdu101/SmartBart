@@ -5,7 +5,7 @@ import { IPlannerRequest, ISchedule, IPlannerState } from "../../types/PlannerTy
 import { Table } from "reactstrap";
 import { DateService } from "../../services/DateService/DateService";
  
-class PlannerTable extends React.Component<{}, IPlannerState> {
+export default class PlannerTable extends React.Component<{}, IPlannerState> {
 
     constructor(props: any) {
         super(props);
@@ -17,7 +17,7 @@ class PlannerTable extends React.Component<{}, IPlannerState> {
         };
     }
 
-    public componentDidMount() {
+    public componentDidMount(): void {
         this.setState({plans: {}});
         fetch(ConfigService.staticFilteredEstimates + "?orig=24th&dest=rock").then(results => {
             return results.json();
@@ -27,7 +27,7 @@ class PlannerTable extends React.Component<{}, IPlannerState> {
         });
     }
 
-    private outputRequestScheduleRow(schedule: ISchedule): any {
+    private outputRequestScheduleRow(schedule: ISchedule): JSX.Element[] {
         let rows: IPlannerRequest[] = schedule ? schedule.request : [];
 
         return rows.map((row: IPlannerRequest, index: number) => {
@@ -60,7 +60,7 @@ class PlannerTable extends React.Component<{}, IPlannerState> {
         return date;
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <section className="planner-section">
                 <div className="card">
@@ -93,5 +93,3 @@ class PlannerTable extends React.Component<{}, IPlannerState> {
     }
 
 }
-
-export default PlannerTable;
