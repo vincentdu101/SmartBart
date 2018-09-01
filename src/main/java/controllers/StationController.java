@@ -24,24 +24,10 @@ public class StationController extends MainController {
     @Autowired
     private StationService stationService;
 
-    @MessageMapping("/all")
-    @SendTo("/topic/allStations")
-    public List<Station> allStations() throws Exception {
-        return stationService.findAllStations();
-    }
-
-    @MessageMapping("/update")
-    @SendTo("/topic/updateStations")
-    public List<Station> updateStations() throws Exception {
-        return stationService.findAllStations();
-    }
-
-    public void updateStationMessage() {
-        try {
-            this.template.convertAndSend("/topic/updateStations", new Greeting("Fire"));
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+    @RequestMapping(value="/all")
+    public ResponseEntity<List<Station>> getAllStations() {
+        List<Station> stations = stationService.getAllStationsInfo();
+        return new ResponseEntity<>(stations, HttpStatus.OK);
     }
 
     @RequestMapping(value="/estimates")

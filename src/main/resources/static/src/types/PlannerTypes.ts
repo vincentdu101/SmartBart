@@ -1,3 +1,8 @@
+export enum PlannerSectionType {
+    ARRIVAL = <any>"ARRIVAL",
+    DESTINATION = <any>"DESTINATION"
+}
+
 export interface IPlannerRequest {
     origin: string,
     destination: string,
@@ -17,4 +22,12 @@ export interface ISchedule {
 
 export interface IPlannerState {
     plans: any;
+}
+
+export interface IPlannerSectionState {
+    stations: string[]
+}
+
+export interface IPlannerSectionProps {
+    type: PlannerSectionType;
 }

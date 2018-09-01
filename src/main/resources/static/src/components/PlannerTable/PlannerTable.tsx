@@ -62,7 +62,7 @@ export default class PlannerTable extends React.Component<{}, IPlannerState> {
 
     public render(): JSX.Element {
         return (
-            <section className="planner-section">
+            <section className="planner-table">
                 <div className="card">
                     <div className="card-body">
                         <div>Origin: {this.state.plans.origin}</div>

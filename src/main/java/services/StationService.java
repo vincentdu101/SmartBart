@@ -39,26 +39,6 @@ public class StationService extends ResourceService {
         return convertedRoutes;
     }
 
-    public static Station findStationByDescription(String description) {
-        String SQL = "SELECT * FROM station WHERE description = '" + description + "'";
-        return runJdbcTemplate().queryForObject(SQL, new StationMapper());
-    }
-
-    public static Station findStationById(Integer id) {
-        String SQL = "SELECT * FROM station WHERE id = '" + id + "' LIMIT 1";
-        return runJdbcTemplate().queryForObject(SQL, new StationMapper());
-    }
-
-    public static List<Station> findAllStations() {
-        List<Station> output = new ArrayList<>();
-        String SQL = "SELECT * FROM station";
-        List<Map<String, Object>> stationObject = runJdbcTemplate().queryForList(SQL);
-        for (Map<String, Object> objectMap : stationObject) {
-            output.add(createStationFromMapObject(objectMap));
-        }
-        return output;
-    }
-
     public List<Station> getStationsEstimate(String orig) {
         try {
             String fullPath = path + "?" + requestService.getParamsStringWithExtraParam("etd", "orig", orig);
@@ -71,6 +51,10 @@ public class StationService extends ResourceService {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public List<Station> getAllStationsInfo() {
+
     }
 
     public List<Station> getStationsFilteredEstimate(String orig, String direction) {
