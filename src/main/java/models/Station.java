@@ -99,20 +99,6 @@ public class Station implements Serializable {
         return nextSouthStationId;
     }
 
-    public Station getNextStation(Direction direction) {
-        if (direction.equals(Direction.NORTH)) {
-            return stationService.findStationById(nextNorthStationId);
-        } else {
-            return stationService.findStationById(nextSouthStationId);
-        }
-    }
-
-    public void setupStation(String description) {
-        Station currentStation = stationService.findStationByDescription(description);
-        trainMonitor.addStation(this);
-        loadStation(currentStation);
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }

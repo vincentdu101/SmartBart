@@ -3,11 +3,10 @@ package controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import models.Station;
+import models.StationInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import services.StationService;
@@ -25,8 +24,8 @@ public class StationController extends MainController {
     private StationService stationService;
 
     @RequestMapping(value="/all")
-    public ResponseEntity<List<Station>> getAllStations() {
-        List<Station> stations = stationService.getAllStationsInfo();
+    public ResponseEntity<List<StationInfo>> getAllStations() {
+        List<StationInfo> stations = stationService.getAllStationsInfo();
         return new ResponseEntity<>(stations, HttpStatus.OK);
     }
 

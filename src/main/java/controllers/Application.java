@@ -62,19 +62,14 @@ public class Application implements CommandLineRunner {
         plannerController = (PlannerController) context.getBean("plannerController");
         stationController = (StationController) context.getBean("stationController");
 
-        SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-        dataSource.setDriver(new com.mysql.jdbc.Driver());
-        dataSource.setUrl("jdbc:mysql://localhost:3306/train_app?verifyServerCertificate=false&useSSL=true");
-        dataSource.setUsername("root");
-        dataSource.setPassword("");
+        // SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+        // dataSource.setDriver(new com.mysql.jdbc.Driver());
+        // dataSource.setUrl("jdbc:mysql://localhost:3306/train_app?verifyServerCertificate=false&useSSL=true");
+        // dataSource.setUsername("root");
+        // dataSource.setPassword("");
 
-        log.info("Creating tables");
-        jdbcTemplate = new JdbcTemplate(dataSource);
-
-        setupTables();
-        setupStations();
-        setupTrains();
-        startTrains();
+        // log.info("Creating tables");
+        // jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Bean
@@ -155,34 +150,5 @@ public class Application implements CommandLineRunner {
         jdbcTemplate.execute("update station set next_north_station_id=3, next_south_station_id=5 where id = 4");
         jdbcTemplate.execute("update station set next_north_station_id=4, next_south_station_id=6 where id = 5");
         jdbcTemplate.execute("update station set next_north_station_id=5, next_south_station_id=null where id = 6");
-    }
-
-    public void setupTrains() {
-        northFactory = new NorthTrainFactory(trainStationProgressService, trainService, stationService, seatService);
-        southFactory = new SouthTrainFactory(trainStationProgressService, trainService, stationService, seatService);
-
-        northFactory.setStationController(stationController);
-        southFactory.setStationController(stationController);
-
-        northFactory.setTrainController(trainController);
-        southFactory.setTrainController(trainController);
-
-        northFactory.prepareTrain(TrainModel.A, StationService.findStationByDescription("North A Station"), Direction.SOUTH);
-        northFactory.prepareTrain(TrainModel.B, StationService.findStationByDescription("North B Station"), Direction.NORTH);
-        northFactory.prepareTrain(TrainModel.C, StationService.findStationByDescription("North C Station"), Direction.NORTH);
-
-        southFactory.prepareTrain(TrainModel.A, StationService.findStationByDescription("South A Station"), Direction.NORTH);
-        southFactory.prepareTrain(TrainModel.B, StationService.findStationByDescription("South B Station"), Direction.NORTH);
-        southFactory.prepareTrain(TrainModel.C, StationService.findStationByDescription("South C Station"), Direction.SOUTH);
-    }
-
-    public void startTrains() throws InterruptedException {
-        northFactory.beginTravelForAllTrains();
-        southFactory.beginTravelForAllTrains();
-
-        Thread.sleep(3000);
-
-        northFactory.beginTravelForAllTrains();
-        southFactory.beginTravelForAllTrains();
     }
 }

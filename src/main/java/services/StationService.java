@@ -1,15 +1,14 @@
 package services;
 
 import models.Station;
+import models.StationInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -22,6 +21,7 @@ public class StationService extends ResourceService {
     private RequestService requestService;
 
     private String path = "https://api.bart.gov/api/etd.aspx";
+    private String stationsPath = "https://api.bart.gov/api/stn.aspx";
 
     private Map<String, String> convertStationParams(String orig, String dir) {
         Map<String, String> input = new HashMap<>();
@@ -39,6 +39,15 @@ public class StationService extends ResourceService {
         return convertedRoutes;
     }
 
+    private List<StationInfo> convertStationsToList(JSONArray route) {
+        List<StationInfo> convertedStations = new ArrayList<>();
+        for (int i = 0; i < route.length(); i++) {
+            JSONObject stationRow = (JSONObject) route.get(i);
+            convertedStations.add(new StationInfo(stationRow));
+        }
+        return convertedStations;
+    }
+
     public List<Station> getStationsEstimate(String orig) {
         try {
             String fullPath = path + "?" + requestService.getParamsStringWithExtraParam("etd", "orig", orig);
@@ -50,11 +59,21 @@ public class StationService extends ResourceService {
         } catch(Exception ex) {
             ex.printStackTrace();
         }
-        return null;
+        return Collections.emptyList();
     }
 
-    public List<Station> getAllStationsInfo() {
-
+    public List<StationInfo> getAllStationsInfo() {
+        try {
+            String fullPath = stationsPath + "?" + requestService.getParamsString("stns");
+            String content = requestService.getRequestContent(fullPath);
+            JSONObject jsonObject = new JSONObject(content);
+            JSONObject root = (JSONObject) jsonObject.get("root");
+            JSONArray stations = root.getJSONObject("stations").getJSONArray("station");
+            return convertStationsToList(stations);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return Collections.emptyList();
     }
 
     public List<Station> getStationsFilteredEstimate(String orig, String direction) {
@@ -70,7 +89,7 @@ public class StationService extends ResourceService {
         } catch(Exception ex) {
             ex.printStackTrace();
         }
-        return null;
+        return Collections.emptyList();
     }
 
 }

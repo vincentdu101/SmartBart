@@ -54,16 +54,16 @@ public class StationInfo implements Serializable {
         this.zipcode = zipcode;
     }
 
-    public Station(JSONObject station) {
-        this.name = station.getString("name");
-        this.abbr = station.getString("abbr");
-
-        JSONArray etds = station.getJSONArray("etd");
-        for (int i = 0; i < etds.length(); i++) {
-            JSONObject etdRow = etds.getJSONObject(i);
-            this.etds.add(new Etd(etdRow));
-        }
-
+    public StationInfo(JSONObject stationInfo) {
+        this.name = stationInfo.getString("name");
+        this.abbr = stationInfo.getString("abbr");
+        this.gtfs_latitude = stationInfo.getDouble("gtfs_latitude");
+        this.gtfs_longitude = stationInfo.getDouble("gtfs_longitude");
+        this.address = stationInfo.getString("address");
+        this.city = stationInfo.getString("city");
+        this.county = stationInfo.getString("county");
+        this.state = stationInfo.getString("state");
+        this.zipcode = stationInfo.getString("zipcode");
     }
 
     public String getName() {
@@ -82,19 +82,19 @@ public class StationInfo implements Serializable {
         this.abbr = abbr;
     }
 
-    public double getGtfs_latitude() {
+    public double getGtfsLatitude() {
         return gtfs_latitude;
     }
 
-    public void setGtfs_latitude(double gtfs_latitude) {
+    public void setGtfsLatitude(double gtfs_latitude) {
         this.gtfs_latitude = gtfs_latitude;
     }
 
-    public double getGtfs_longitude() {
+    public double getGtfsLongitude() {
         return gtfs_longitude;
     }
 
-    public void setGtfs_longitude(double gtfs_longitude) {
+    public void setGtfsLongitude(double gtfs_longitude) {
         this.gtfs_longitude = gtfs_longitude;
     }
 
