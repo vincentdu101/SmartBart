@@ -3,5 +3,7 @@ export interface IDropdownInfoState {
 }
 
 export interface IDropdownInfoProp {
-    stations: string[]
+    input: any[],
+    label: string,
+    selectionCallback: Function
 }

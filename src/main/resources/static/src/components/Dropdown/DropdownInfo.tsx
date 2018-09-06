@@ -7,7 +7,6 @@ export default class DropdownInfo extends React.Component<IDropdownInfoProp, IDr
 
     constructor(props: IDropdownInfoProp) {
         super(props);
-        console.log(props);
         this.toggle = this.toggle.bind(this);
 
         this.state = {
@@ -16,30 +15,44 @@ export default class DropdownInfo extends React.Component<IDropdownInfoProp, IDr
 
     }
 
-    public componentDidMount() {
+    public componentDidMount(): void {
 
     }
 
-    private toggle() {
+    public componentDidUpdate(): void {
+        
+    }
+
+    private selectedDropdownCallback(event: any): void {
+        this.props.selectionCallback(event.target.innerText);
+    }
+
+    private outputInputItems(): JSX.Element[] {
+        return this.props.input.map((row: any, index: number) => {
+            return (
+                <DropdownItem 
+                    key={row.name + index}
+                    onClick={this.selectedDropdownCallback}
+                >{row.name}</DropdownItem>
+            );
+        });
+    }
+
+    private toggle(): void {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
         });
     }
-    
 
     public render() {
         return (
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                 <DropdownToggle caret={true}>
-                Dropdown
+                    {this.props.label}
                 </DropdownToggle>
                 <DropdownMenu>
-                <DropdownItem header={true}>Header</DropdownItem>
-                <DropdownItem disabled={true}>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider={true} />
-                <DropdownItem>Another Action</DropdownItem>
-                </DropdownMenu>
+                    {this.outputInputItems()}  
+                </DropdownMenu>  
             </Dropdown>
         )
     }
