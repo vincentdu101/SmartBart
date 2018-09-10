@@ -21,11 +21,18 @@ export interface ISchedule {
 }
 
 export interface IPlannerState {
-    plans: any;
+    plans: any
+}
+
+export interface IPlannerProps {
+    origin: string,
+    destination: string
 }
 
 export interface IPlannerSectionState {
-    stations: string[]
+    stations: string[],
+    origin: string,
+    destination: string
 }
 
 export interface IPlannerSectionProps {

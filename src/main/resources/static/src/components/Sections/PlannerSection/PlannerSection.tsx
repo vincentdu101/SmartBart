@@ -10,10 +10,14 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
     constructor(props: IPlannerSectionProps) {
         super(props);
 
-        this.loadStationsInfo.bind(this);
+        this.loadStationsInfo = this.loadStationsInfo.bind(this);
+        this.originSelection = this.originSelection.bind(this);
+        this.destinationSelection = this.destinationSelection.bind(this);
 
         this.state = {
-            stations: []
+            stations: [],
+            origin: "",
+            destination: ""
         };
     }
 
@@ -27,11 +31,11 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
     }
 
     private originSelection(origin: string): void {
-        console.log("Selected: ", origin);
+        this.setState({origin: origin});
     }
 
     private destinationSelection(destination: string): void {
-        console.log("Selected: ", destination);
+        this.setState({destination: destination});
     }
 
     public componentDidMount(): void {
@@ -47,7 +51,8 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
                 <DropdownInfo   input={this.state.stations} 
                                 label="Destination"
                                 selectionCallback={this.destinationSelection} />
-                <PlannerTable />
+                <PlannerTable   origin={this.state.origin} 
+                                destination={this.state.destination} />
             </section>
         );
     }

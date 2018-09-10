@@ -1,30 +1,43 @@
 import * as React from "react";
 import * as ConfigService from "../../services/Config/ConfigService";
 import "./PlannerTable.scss";
-import { IPlannerRequest, ISchedule, IPlannerState } from "../../types/PlannerTypes";
+import { IPlannerProps, IPlannerRequest, ISchedule, IPlannerState } from "../../types/PlannerTypes";
 import { Table } from "reactstrap";
 import { DateService } from "../../services/DateService/DateService";
  
-export default class PlannerTable extends React.Component<{}, IPlannerState> {
+export default class PlannerTable extends React.Component<IPlannerProps, IPlannerState> {
 
     constructor(props: any) {
         super(props);
 
         this.outputRequestScheduleRow = this.outputRequestScheduleRow.bind(this);
+        this.updateTableAndState = this.updateTableAndState.bind(this);
 
         this.state = {
             plans: {}
         };
     }
 
+    private updateTableAndState(): void {
+        if (this.props.origin && this.props.destination) {
+            let params = "?orig=" + this.props.origin + "&dest=" + this.props.destination; 
+            fetch(ConfigService.staticFilteredEstimates + params).then(results => {
+                return results.json();
+            }).then(data => {
+                console.log(data);
+                this.setState({plans: data});
+            });
+        }
+    }
+
     public componentDidMount(): void {
         this.setState({plans: {}});
-        fetch(ConfigService.staticFilteredEstimates + "?orig=24th&dest=rock").then(results => {
-            return results.json();
-        }).then(data => {
-            console.log(data);
-            this.setState({plans: data});
-        });
+        this.updateTableAndState();
+    }
+
+    public componentDidUpdate(): void {
+        console.log(this.props);
+        this.updateTableAndState();
     }
 
     private outputRequestScheduleRow(schedule: ISchedule): JSX.Element[] {

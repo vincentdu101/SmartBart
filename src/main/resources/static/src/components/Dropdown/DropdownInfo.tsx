@@ -8,6 +8,7 @@ export default class DropdownInfo extends React.Component<IDropdownInfoProp, IDr
     constructor(props: IDropdownInfoProp) {
         super(props);
         this.toggle = this.toggle.bind(this);
+        this.selectedDropdownCallback = this.selectedDropdownCallback.bind(this);
 
         this.state = {
             dropdownOpen: false
