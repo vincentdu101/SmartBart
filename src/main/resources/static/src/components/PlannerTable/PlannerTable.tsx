@@ -18,9 +18,9 @@ export default class PlannerTable extends React.Component<IPlannerProps, IPlanne
         };
     }
 
-    private updateTableAndState(): void {
-        if (this.props.origin && this.props.destination) {
-            let params = "?orig=" + this.props.origin + "&dest=" + this.props.destination; 
+    private updateTableAndState(props: Readonly<any>): void {
+        if (props.origin && props.destination) {
+            let params = "?orig=" + props.origin + "&dest=" + props.destination; 
             fetch(ConfigService.staticFilteredEstimates + params).then(results => {
                 return results.json();
             }).then(data => {
@@ -32,12 +32,11 @@ export default class PlannerTable extends React.Component<IPlannerProps, IPlanne
 
     public componentDidMount(): void {
         this.setState({plans: {}});
-        this.updateTableAndState();
     }
 
-    public componentDidUpdate(): void {
-        console.log(this.props);
-        this.updateTableAndState();
+    public componentWillReceiveProps(nextProps: Readonly<any>): void {
+        console.log("nextProps ", nextProps);
+        this.updateTableAndState(nextProps);
     }
 
     private outputRequestScheduleRow(schedule: ISchedule): JSX.Element[] {
@@ -46,7 +45,7 @@ export default class PlannerTable extends React.Component<IPlannerProps, IPlanne
         return rows.map((row: IPlannerRequest, index: number) => {
             let origDateTime = DateService.printFormattedTime(row.origDateTime);
             let destDateTime = DateService.printFormattedTime(row.destDateTime);
-
+            console.log(row);
             return (
                 <tr key={row.origin + index}>
                     <td key={row.origin}>{row.origin}</td>

@@ -25,7 +25,7 @@ export default class DropdownInfo extends React.Component<IDropdownInfoProp, IDr
     }
 
     private selectedDropdownCallback(event: any): void {
-        this.props.selectionCallback(event.target.innerText);
+        this.props.selectionCallback(event.target.dataset.station);
     }
 
     private outputInputItems(): JSX.Element[] {
@@ -33,6 +33,7 @@ export default class DropdownInfo extends React.Component<IDropdownInfoProp, IDr
             return (
                 <DropdownItem 
                     key={row.name + index}
+                    data-station={row.abbr}
                     onClick={this.selectedDropdownCallback}
                 >{row.name}</DropdownItem>
             );
