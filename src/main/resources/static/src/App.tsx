@@ -2,7 +2,8 @@ import * as React from 'react';
 import './App.css';
 import logo from './logo.svg';
 
-import PlannerSection from "./components/Sections/PlannerSection/PlannerSection";
+// import PlannerSection from "./components/Sections/PlannerSection/PlannerSection";
+import StationSection from "./components/Sections/StationSection/StationSection";
 
 class App extends React.Component {
   public render() {
@@ -13,7 +14,8 @@ class App extends React.Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         
-        <PlannerSection />
+        {/* <PlannerSection /> */}
+        <StationSection />
       </div>
     );
   }

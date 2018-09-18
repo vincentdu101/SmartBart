@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as ConfigService from "../../services/Config/ConfigService";
+import { ConfigService } from "../../services/Config/ConfigService";
 import "./PlannerTable.scss";
 import { IPlannerProps, IPlannerRequest, ISchedule, IPlannerState } from "../../types/PlannerTypes";
 import { Table } from "reactstrap";
