@@ -28,12 +28,6 @@ public class Station implements Serializable {
     private Integer nextSouthStationId;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-    private StationMonitor stationMonitor;
-    private StationService stationService;
-    private TrainMonitor trainMonitor;
-    private TrainStationProgressService trainStationProgressService;
-    private Boolean trainStationed = false;
-    private Train currentTrain;
     private List<Etd> etds;
     private String name;
     private String abbr;

@@ -1,9 +1,9 @@
 import * as React from "react";
-import { ConfigService } from "../../services/Config/ConfigService";
 import "./PlannerTable.scss";
 import { IPlannerProps, IPlannerRequest, ISchedule, IPlannerState } from "../../types/PlannerTypes";
 import { Table } from "reactstrap";
 import { DateService } from "../../services/DateService/DateService";
+import { StationService } from "../../services/StationService/StationService";
  
 export default class PlannerTable extends React.Component<IPlannerProps, IPlannerState> {
 
@@ -19,11 +19,8 @@ export default class PlannerTable extends React.Component<IPlannerProps, IPlanne
     }
 
     private updateTableAndState(props: Readonly<any>): void {
-        if (props.origin && props.destination) {
-            let params = "?orig=" + props.origin + "&dest=" + props.destination; 
-            fetch(ConfigService.staticFilteredEstimates + params).then(results => {
-                return results.json();
-            }).then(data => {
+        if (props.origin && props.destination) { 
+            StationService.getStationsEstimatesFiltered(props).then(data => {
                 console.log(data);
                 this.setState({plans: data});
             });
@@ -35,7 +32,6 @@ export default class PlannerTable extends React.Component<IPlannerProps, IPlanne
     }
 
     public componentWillReceiveProps(nextProps: Readonly<any>): void {
-        console.log("nextProps ", nextProps);
         this.updateTableAndState(nextProps);
     }
 

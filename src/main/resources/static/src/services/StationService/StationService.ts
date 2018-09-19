@@ -14,4 +14,11 @@ export namespace StationService {
         });
     }
 
+    export function getStationsEstimatesFiltered(props: Readonly<any>) : Promise<any> {
+        let params = "?orig=" + props.origin + "&dest=" + props.destination;
+        return fetch(ConfigService.staticFilteredEstimates + params).then(results => {
+            return results.json();
+        })   
+    }
+
 }

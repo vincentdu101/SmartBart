@@ -2,6 +2,7 @@ import * as React from "react";
 import "./StationSection.scss";
 import { IStationSectionProps, IStationSectionState } from "../../../types/StationTypes";
 import { StationService } from "../../../services/StationService/StationService";
+import ListGroupInfo from "../../ListGroup/ListGroupInfo";
 
 export default class StationSection extends React.Component<IStationSectionProps, IStationSectionState> {
 
@@ -30,7 +31,7 @@ export default class StationSection extends React.Component<IStationSectionProps
 
         return (
             <section className="stations-section">
-                test
+                <ListGroupInfo input={this.state.stations} />
             </section>
         );
 
