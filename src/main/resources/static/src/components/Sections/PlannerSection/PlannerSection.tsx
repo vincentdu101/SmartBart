@@ -3,7 +3,6 @@ import "./PlannerSection.scss";
 import { IPlannerSectionState, IPlannerSectionProps } from "../../../types/PlannerTypes";
 import PlannerTable from "../../PlannerTable/PlannerTable";
 import DropdownInfo from "../../Dropdown/DropdownInfo";
-import MapLeaflet from "../../MapLeaflet/MapLeaflet";
 import { StationService } from "../../../services/StationService/StationService";
 
 export default class PlannerSection extends React.Component<{}, IPlannerSectionState> {
@@ -53,7 +52,6 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
                 <PlannerTable   origin={this.state.origin} 
                                 destination={this.state.destination} />
 
-                <MapLeaflet />
             </section>
         );
     }
