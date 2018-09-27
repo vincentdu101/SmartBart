@@ -3,6 +3,7 @@ import "./StationSection.scss";
 import { IStationSectionProps, IStationSectionState } from "../../../types/StationTypes";
 import { StationService } from "../../../services/StationService/StationService";
 import ListGroupInfo from "../../ListGroup/ListGroupInfo";
+import { Map } from "../../Maps/Map";
 
 export default class StationSection extends React.Component<IStationSectionProps, IStationSectionState> {
 
@@ -45,7 +46,7 @@ export default class StationSection extends React.Component<IStationSectionProps
 
                     <div className="col-md-8">
                         <div className="panel">
-                            test
+                            <Map mapType={"CA"} />
                         </div>
                     </div>
                 </div>
