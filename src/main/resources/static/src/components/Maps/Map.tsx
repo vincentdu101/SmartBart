@@ -16,6 +16,19 @@ export class Map extends React.Component<IMapProps, IMapState> {
         };
     }
 
+    public componentDidMount(): void {
+        this.setState({maps: {}});
+        MapService.getMapData().then((data) => {
+            this.setState({maps: data});
+        });
+    }
+
+    public componentDidUpdate(): void {
+        MapService.getMapData().then((data) => {
+            this.setState({maps: data});
+        });
+    }
+
     private generatePath(geoPath: any, data: any) {
         const { mapType } = this.props;
 
@@ -52,22 +65,26 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     public render(): JSX.Element {
-        const { mapType } = this.props;
-        const geoPath = d3.geoPath();
-        const data = topojson.feature(this.state.maps.geoPath, this.state.maps.geoData.objects.states);
-        const map = this.generatePath(geoPath, data);
-
-        return (
-            <div className="map-container">
-                <svg
-                    className={`map ${mapType}`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 960 600"
-                >
-                    {map}
-                </svg>
-            </div>
-        );
+        if (this.state.maps && this.state.maps.geoPath) {
+            const { mapType } = this.props;
+            console.log(this.state.maps);
+            const data = topojson.feature(this.state.maps.geoPath, this.state.maps.geoData.objects.states);
+            const map = this.generatePath(d3.geoPath(), data);
+    
+            return (
+                <div className="map-container">
+                    <svg
+                        className={`map ${mapType}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 960 600"
+                    >
+                        {map}
+                    </svg>
+                </div>
+            );
+        } else {
+            return (<div>test</div>);
+        }
     }
 
 }

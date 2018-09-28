@@ -17,5 +17,5 @@ export interface IMapProps {
 }
 
 export interface IMapState {
-
+    maps: any
 }

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { geoPath } from "d3";
 import { IStateProps, IStateState } from "../../types/MapTypes";
 
 export class State extends React.Component<IStateProps, IStateState> {
@@ -15,7 +14,9 @@ export class State extends React.Component<IStateProps, IStateState> {
 
     public render(): JSX.Element {
         const { mapType, feature, path, radius, fill, i } = this.props;
-
+            console.log(mapType);
+            console.log(feature);
+            console.log(radius);
         // if (mapType === "choropleth") {
             return (
                 <path
