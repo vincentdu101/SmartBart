@@ -1,6 +1,7 @@
 export interface IStateProps {
     mapType: string,
     stateName: any;
+    stations: any[];
     path: any;
     feature: object;
     fill: string;
@@ -18,5 +19,7 @@ export interface IMapProps {
 }
 
 export interface IMapState {
-    maps: any
+    maps: any;
+    states: any;
+    stations: any[];
 }

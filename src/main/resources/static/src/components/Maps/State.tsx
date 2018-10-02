@@ -13,17 +13,19 @@ export class State extends React.Component<IStateProps, IStateState> {
     }
 
     public render(): JSX.Element {
-        const { mapType, feature, path, radius, fill, i } = this.props;
+        const { mapType, feature, stations, path, radius, fill, i } = this.props;
             console.log(mapType);
             console.log(feature);
             console.log(radius);
+            console.log(stations);
         // if (mapType === "choropleth") {
             return (
                 <path
                     className={`states state-transition-${i}`}
                     d={path}
+                    r={radius}
                     fill={fill}
-                    stroke="#FFFFFF"
+                    stroke="#151616"
                     strokeWidth={0.25}
                     onMouseEnter={this.onInteractionHandler}
                     onClick={this.onInteractionHandler}
