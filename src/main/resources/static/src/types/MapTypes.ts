@@ -13,7 +13,8 @@ export interface IStateState {
 }
 
 export interface IMapProps {
-    mapType: string;
+    mapType?: string;
+    maps: any;
 }
 
 export interface IMapState {

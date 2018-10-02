@@ -4,6 +4,7 @@ export interface IStationSectionProps {
 
 export interface IStationSectionState {
     stations: IStation[]
+    maps: any
 }
 
 export interface IStation {

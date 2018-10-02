@@ -4,6 +4,7 @@ import { IStationSectionProps, IStationSectionState } from "../../../types/Stati
 import { StationService } from "../../../services/StationService/StationService";
 import ListGroupInfo from "../../ListGroup/ListGroupInfo";
 import { Map } from "../../Maps/Map";
+import { MapService } from "../../../services/MapService/MapService";
 
 export default class StationSection extends React.Component<IStationSectionProps, IStationSectionState> {
 
@@ -11,21 +12,30 @@ export default class StationSection extends React.Component<IStationSectionProps
         super(props);
 
         this.loadStationsInfo = this.loadStationsInfo.bind(this);
+        this.loadMapsInfo = this.loadMapsInfo.bind(this);
         this.originSelection = this.originSelection.bind(this);
 
         this.state = {
-            stations: []
+            stations: [],
+            maps: null
         };
     }
 
     public componentDidMount(): void {
         this.loadStationsInfo();
+        this.loadMapsInfo();
     }
 
     private loadStationsInfo(): void {
         this.setState({stations: []});
         StationService.getStationsInfo().then(data => {
             this.setState({stations: data});
+        });
+    }
+
+    private loadMapsInfo(): void {
+        MapService.getMapData().then((mapData: any) => {
+            this.setState({maps: mapData.data});
         });
     }
 
@@ -46,7 +56,7 @@ export default class StationSection extends React.Component<IStationSectionProps
 
                     <div className="col-md-8">
                         <div className="panel">
-                            <Map mapType={"CA"} />
+                            <Map maps={this.state.maps} />
                         </div>
                     </div>
                 </div>

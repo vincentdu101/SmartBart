@@ -4,33 +4,34 @@ import * as topojson from "topojson-client";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { IMapProps, IMapState } from "../../types/MapTypes";
 import { State } from "./State";
-import { MapService } from "../../services/MapService/MapService";
 
 export class Map extends React.Component<IMapProps, IMapState> {
 
     constructor(props: any) {
         super(props);
 
+        this.generateMap = this.generateMap.bind(this);
+        this.generatePath = this.generatePath.bind(this);
+
         this.state = {
-            maps: {}
+            maps: null
         };
     }
 
     public componentDidMount(): void {
-        this.setState({maps: {}});
-        MapService.getMapData().then((data) => {
-            this.setState({maps: data});
-        });
+        this.setState({maps: null});
     }
 
     public componentDidUpdate(): void {
-        MapService.getMapData().then((data) => {
-            this.setState({maps: data});
-        });
+
+    }
+
+    public componentWillReceiveProps(nextProps: Readonly<any>): void {
+        this.setState({maps: nextProps.maps});
     }
 
     private generatePath(geoPath: any, data: any) {
-        const { mapType } = this.props;
+        const mapType = "US";
 
         return (
             <TransitionGroup component={null}>
@@ -64,27 +65,28 @@ export class Map extends React.Component<IMapProps, IMapState> {
         );
     }
 
-    public render(): JSX.Element {
-        if (this.state.maps && this.state.maps.geoPath) {
-            const { mapType } = this.props;
-            console.log(this.state.maps);
-            const data = topojson.feature(this.state.maps.geoPath, this.state.maps.geoData.objects.states);
-            const map = this.generatePath(d3.geoPath(), data);
-    
-            return (
-                <div className="map-container">
-                    <svg
-                        className={`map ${mapType}`}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 960 600"
-                    >
-                        {map}
-                    </svg>
-                </div>
-            );
+    public generateMap(): JSX.Element {
+        if (this.state.maps) {
+            const maps = this.state.maps;
+            const data = topojson.feature(maps, maps.objects.states)["features"];
+            return this.generatePath(d3.geoPath(), data);
         } else {
             return (<div>test</div>);
         }
+    }
+
+    public render(): JSX.Element {
+        return (
+            <div className="map-container">
+                <svg
+                    className={`map US`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 960 600"
+                >
+                    {this.generateMap()}
+                </svg>
+            </div>
+        );
     }
 
 }
