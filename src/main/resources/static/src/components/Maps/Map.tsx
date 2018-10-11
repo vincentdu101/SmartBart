@@ -1,10 +1,11 @@
 import * as React from "react";
 import * as d3 from "d3";
-import * as topojson from "topojson-client";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { IMapProps, IMapState } from "../../types/MapTypes";
 import { State } from "./State";
 import * as stateIds from "../../data/us-states-ids.json";
+import * as stateFeatures from "../../data/us-states-features.json";
+import { GeoProjection } from "d3";
 
 export class Map extends React.Component<IMapProps, IMapState> {
 
@@ -35,19 +36,22 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.setState({maps: nextProps.maps, stations: nextProps.stations});
     }
 
+    private projection(): GeoProjection {
+        return d3.geoAlbersUsa().translate([ 960 / 2, 600 / 2 ]);
+    }
+
     private generateCircles(): JSX.Element {
         if (this.state.maps) {
             const data = [[-122.490402, 37.786453], [-122.389809, 37.72728], [-78.917377, 39.757239], [-81.307761, 33.468848]];
             // const data = topojson.feature(maps, maps.objects.counties).features;
-            const projection = d3.geoMercator()
-                                .scale(960)
-                                .center([-95.8, 37.9]);
+
             return (
                 <TransitionGroup component={null}>
                     {data.map((feature: [number, number], i) => {
                         const fill = "steelblue";
+                        const projection = this.projection();
+                        const locations = projection(feature) || [0, 0];  
 
-                        console.log(feature);
                         return (
                             <CSSTransition
                                 key={i}
@@ -59,10 +63,12 @@ export class Map extends React.Component<IMapProps, IMapState> {
                                     <circle
                                         className={`states-circle raw state-transition-circle-${i}`}
                                         r={5}
+                                        cx={locations[0]}
+                                        cy={locations[1]}
                                         fill={fill}
                                         stroke="#000000"
                                         strokeWidth={0.5}
-                                        transform={'translate(' + projection(feature) + ')'}
+                                        // transform={'translate(' + projection(feature) + ')'}
                                         opacity={0.75}
                                     />
                                 </g>
@@ -86,8 +92,8 @@ export class Map extends React.Component<IMapProps, IMapState> {
                     // const breaks = this.getChoroplethBreaks();
                     const fill = "#0de298";
                     const path = geoPath(feature);
-
-                    if (this.state.states[feature.id].name === this.californiaOnly) {
+                    console.log(feature);
+                    if (feature.properties.NAME === this.californiaOnly) {
                         return (
                             <CSSTransition
                                 key={i}
@@ -117,25 +123,25 @@ export class Map extends React.Component<IMapProps, IMapState> {
         );
     }
 
-    public generateMap(): JSX.Element | undefined {
-        if (this.state.maps) {
-            const maps = this.state.maps;
-            const data = topojson.feature(maps, maps.objects.states)["features"];
-            return this.generatePath(d3.geoPath(), data);
+    public generateMap(path: d3.GeoPath): JSX.Element | undefined {
+        if (stateFeatures["features"]) {
+            return this.generatePath(path, stateFeatures["features"]);
         } else {
             return (<div>test</div>);
         }
     }
 
     public render(): JSX.Element {
+        const path = d3.geoPath().projection(this.projection());
+
         return (
             <div className="map-container">
                 <svg
                     className={`map US`}
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 400 600"
+                    viewBox="0 0 960 600"
                 >
-                    {this.generateMap()}
+                    {this.generateMap(path)}
                     {this.generateCircles()}
                 </svg>
             </div>
