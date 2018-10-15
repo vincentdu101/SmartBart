@@ -23,7 +23,6 @@ export default class StationSection extends React.Component<IStationSectionProps
 
     public componentDidMount(): void {
         this.loadStationsInfo();
-        this.loadMapsInfo();
     }
 
     private loadStationsInfo(): void {
