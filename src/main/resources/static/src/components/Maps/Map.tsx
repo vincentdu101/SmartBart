@@ -50,41 +50,43 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private generateCircles(): JSX.Element {
-        const data = [[-122.490402, 37.786453], [-122.389809, 37.72728], [-78.917377, 39.757239], [-81.307761, 33.468848]];
-
-        return (
-            <TransitionGroup component={null}>
-                {data.map((feature: [number, number], i) => {
-                    const fill = "steelblue";
-                    const projection = this.projection();
-                    const locations = projection(feature) || [0, 0];  
-
-                    return (
-                        <CSSTransition
-                            key={i}
-                            classNames={`state-transition-${i}`}
-                            appear={true}
-                            timeout={5000}>
-
-                            <g className="circle-container">
-                                <circle
-                                    className={`states-circle raw state-transition-circle-${i}`}
-                                    r={5}
-                                    cx={locations[0]}
-                                    cy={locations[1]}
-                                    fill={fill}
-                                    stroke="#000000"
-                                    strokeWidth={0.5}
-                                    // transform={'translate(' + projection(feature) + ')'}
-                                    opacity={0.75}
-                                />
-                            </g>
-
-                        </CSSTransition>
-                    );
-                })}
-            </TransitionGroup>
-        );
+        console.log(this.state.stations);
+        if (this.state.stations.length > 0) {
+            return (
+                <TransitionGroup component={null}>
+                    {this.state.stations.map((feature: any) => {
+                        const fill = "steelblue";
+                        const projection = this.projection();
+                        const coords: [number, number] = [feature.gtfsLongitude, feature.gtfsLatitude];
+                        const locations = projection(coords) || [0, 0];  
+                        return (
+                            <CSSTransition
+                                key={feature.abbr}
+                                classNames={`state-transition-${feature.abbr}`}
+                                appear={true}
+                                timeout={5000}>
+    
+                                <g className="circle-container">
+                                    <circle
+                                        className={`states-circle raw state-transition-circle-${feature.abbr}`}
+                                        r={2}
+                                        cx={locations[0]}
+                                        cy={locations[1]}
+                                        fill={fill}
+                                        stroke="#000000"
+                                        strokeWidth={0.5}
+                                        opacity={0.75}
+                                    />
+                                </g>
+    
+                            </CSSTransition>
+                        );
+                    })}
+                </TransitionGroup>
+            );
+        } else {
+            return (<div>test</div>);
+        }
     }
 
     private generatePath(geoPath: any, data: any): JSX.Element | undefined {

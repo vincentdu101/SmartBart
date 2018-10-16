@@ -16,6 +16,7 @@ export interface IStateState {
 export interface IMapProps {
     mapType?: string;
     maps: any;
+    stations: any;
 }
 
 export interface IMapState {

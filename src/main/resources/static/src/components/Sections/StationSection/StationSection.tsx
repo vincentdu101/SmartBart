@@ -55,7 +55,8 @@ export default class StationSection extends React.Component<IStationSectionProps
 
                     <div className="col-md-8">
                         <div className="panel">
-                            <Map maps={this.state.maps} />
+                            <Map    maps={this.state.maps} 
+                                    stations={this.state.stations} />
                         </div>
                     </div>
                 </div>
