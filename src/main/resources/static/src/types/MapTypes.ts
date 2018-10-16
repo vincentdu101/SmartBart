@@ -23,5 +23,5 @@ export interface IMapState {
     maps: any;
     states: any;
     stations: any[];
-    tooltip: boolean;
+    tooltipActive: boolean;
 }

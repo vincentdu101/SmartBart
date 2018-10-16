@@ -58,7 +58,6 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private generateCircles(): JSX.Element {
-        console.log(this.state.stations);
         if (this.state.stations.length > 0) {
             return (
                 <TransitionGroup component={null}>
@@ -160,11 +159,6 @@ export class Map extends React.Component<IMapProps, IMapState> {
                     {this.generateMap(path)}
                     {this.generateCircles()}
                 </svg>
-
-                {/* http://bl.ocks.org/d3noob/a22c42db65eb00d4e369 */}
-                <div className="tooltip">
-                    Test
-                </div>
             </div>
         );
     }

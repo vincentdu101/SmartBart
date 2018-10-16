@@ -5,6 +5,7 @@ import { StationService } from "../../../services/StationService/StationService"
 import ListGroupInfo from "../../ListGroup/ListGroupInfo";
 import { Map } from "../../Maps/Map";
 import { MapService } from "../../../services/MapService/MapService";
+import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
 
 export default class StationSection extends React.Component<IStationSectionProps, IStationSectionState> {
 
@@ -60,6 +61,11 @@ export default class StationSection extends React.Component<IStationSectionProps
                         </div>
                     </div>
                 </div>
+                
+                <CircleTooltip  text={"test"} 
+                                x={0}
+                                y={0}
+                                tooltipActive={true} />
             </section>
         );
 
