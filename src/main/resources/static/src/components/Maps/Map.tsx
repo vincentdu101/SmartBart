@@ -6,6 +6,7 @@ import { State } from "./State";
 import * as stateIds from "../../data/us-states-ids.json";
 import * as stateFeatures from "../../data/california-counties.json";
 import { GeoProjection } from "d3";
+import "./Map.scss";
 
 export class Map extends React.Component<IMapProps, IMapState> {
 
@@ -22,11 +23,13 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.generateMap = this.generateMap.bind(this);
         this.generatePath = this.generatePath.bind(this);
         this.generateViewBox = this.generateViewBox.bind(this);
+        this.onCircleInteraction = this.onCircleInteraction.bind(this);
 
         this.state = {
             states: stateIds,
             maps: null,
-            stations: []
+            stations: [],
+            tooltipActive: false
         };
     }
 
@@ -49,12 +52,17 @@ export class Map extends React.Component<IMapProps, IMapState> {
                 .scale(this.width * this.scaleRate);
     }
 
+    private onCircleInteraction(event: any): void {
+        console.log(event);
+        
+    }
+
     private generateCircles(): JSX.Element {
         console.log(this.state.stations);
         if (this.state.stations.length > 0) {
             return (
                 <TransitionGroup component={null}>
-                    {this.state.stations.map((feature: any) => {
+                    {this.state.stations.map((feature: any, i: number) => {
                         const fill = "steelblue";
                         const projection = this.projection();
                         const coords: [number, number] = [feature.gtfsLongitude, feature.gtfsLatitude];
@@ -70,11 +78,13 @@ export class Map extends React.Component<IMapProps, IMapState> {
                                     <circle
                                         className={`states-circle raw state-transition-circle-${feature.abbr}`}
                                         r={2}
+                                        data-index={i}
                                         cx={locations[0]}
                                         cy={locations[1]}
                                         fill={fill}
                                         stroke="#000000"
                                         strokeWidth={0.5}
+                                        onMouseEnter={this.onCircleInteraction}
                                         opacity={0.75}
                                     />
                                 </g>
@@ -150,6 +160,11 @@ export class Map extends React.Component<IMapProps, IMapState> {
                     {this.generateMap(path)}
                     {this.generateCircles()}
                 </svg>
+
+                {/* http://bl.ocks.org/d3noob/a22c42db65eb00d4e369 */}
+                <div className="tooltip">
+                    Test
+                </div>
             </div>
         );
     }
