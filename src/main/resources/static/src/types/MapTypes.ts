@@ -17,6 +17,7 @@ export interface IMapProps {
     mapType?: string;
     maps: any;
     stations: any;
+    hoverCallback: Function;
 }
 
 export interface IMapState {
@@ -24,4 +25,10 @@ export interface IMapState {
     states: any;
     stations: any[];
     tooltipActive: boolean;
+}
+
+export interface ICircleEvent {
+    x: number,
+    y: number,
+    target: any
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as d3 from "d3";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { IMapProps, IMapState } from "../../types/MapTypes";
+import { IMapProps, IMapState, ICircleEvent } from "../../types/MapTypes";
 import { State } from "./State";
 import * as stateIds from "../../data/us-states-ids.json";
 import * as stateFeatures from "../../data/california-counties.json";
@@ -53,8 +53,12 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private onCircleInteraction(event: any): void {
-        console.log(event);
-        
+        let output: ICircleEvent = {
+            x: event.pageX,
+            y: event.pageY,
+            target: event.target
+        }
+        this.props.hoverCallback(output);
     }
 
     private generateCircles(): JSX.Element {

@@ -4,7 +4,9 @@ export interface IStationSectionProps {
 
 export interface IStationSectionState {
     stations: IStation[]
-    maps: any
+    maps: any,
+    tooltipX: number,
+    tooltipY: number
 }
 
 export interface IStation {
