@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ITooltipState, ITooltipProps } from "../../types/TooltipTypes";
+// import { IStationDetail } from "../../types/StationTypes";
 import "./CircleTooltip.css";
 
 export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState> {
@@ -11,9 +12,10 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
         this.outputTooltipClass = this.outputTooltipClass.bind(this);
 
         this.state = {
-            text: "tewds",
+            text: <div>Test</div>,
             x: 0,
             y: 0,
+            station: undefined,
             tooltipActive: false
         };
     } 
@@ -26,7 +28,8 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
         this.setState({
             x: nextProps.x, 
             y: nextProps.y, 
-            text: nextProps.text,
+            text: nextProps.text(nextProps.station),
+            station: nextProps.station,
             tooltipActive: nextProps.tooltipActive
         });
     }

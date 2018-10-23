@@ -18,7 +18,7 @@ export namespace StationService {
         let params = "?orig=" + props.origin + "&dest=" + props.destination;
         return fetch(ConfigService.staticFilteredEstimates + params).then(results => {
             return results.json();
-        })   
+        });   
     }
 
 }

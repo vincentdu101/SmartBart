@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./StationSection.css";
-import { IStationSectionProps, IStationSectionState } from "../../../types/StationTypes";
+import { IStationSectionProps, IStationSectionState, IStationDetail } from "../../../types/StationTypes";
 import { StationService } from "../../../services/StationService/StationService";
-import ListGroupInfo from "../../ListGroup/ListGroupInfo";
+// import ListGroupInfo from "../../ListGroup/ListGroupInfo";
 import { Map } from "../../Maps/Map";
 import { MapService } from "../../../services/MapService/MapService";
 import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
@@ -17,17 +17,29 @@ export default class StationSection extends React.Component<IStationSectionProps
         this.loadMapsInfo = this.loadMapsInfo.bind(this);
         this.originSelection = this.originSelection.bind(this);
         this.mapHoveredStation = this.mapHoveredStation.bind(this);
+        this.outputBartText = this.outputBartText.bind(this);
 
         this.state = {
             stations: [],
             maps: null,
+            tooltipStation: undefined,
             tooltipX: 0,
-            tooltipY: 0
+            tooltipY: 0,
+            tooltipActive: false,
+            tooltipTextCallback: this.outputBartText
         };
     }
 
     public componentDidMount(): void {
-        this.setState({stations: [], maps: null, tooltipX: 0, tooltipY: 0});
+        this.setState({
+            stations: [],
+            maps: null, 
+            tooltipStation: undefined,
+            tooltipX: 0, 
+            tooltipY: 0,
+            tooltipActive: false,
+            tooltipTextCallback: this.outputBartText
+        });
         this.loadStationsInfo();
     }
 
@@ -49,11 +61,29 @@ export default class StationSection extends React.Component<IStationSectionProps
     }
 
     private mapHoveredStation(position: ICircleEvent): void {
-        console.log(position);
+        const station = this.state.stations[parseInt(position.target.dataset.index)];
+        
         this.setState({
             tooltipX: position.x,
-            tooltipY: position.y
-        })
+            tooltipY: position.y,
+            tooltipStation: station,
+            tooltipActive: true,
+            tooltipTextCallback: this.outputBartText
+        });
+    }
+
+    private outputBartText(station: IStationDetail): JSX.Element {
+        if (station) {
+            return (
+                <div className="bart-text">
+                    <div>{station.name} - {station.abbr}</div>
+                    <div>{station.address}</div>
+                    <div>{station.city}, {station.state} {station.zipcode}</div>
+                </div>
+            );
+        } else {
+            return (<div>test</div>);
+        }
     }
 
     public render(): JSX.Element {
@@ -62,9 +92,9 @@ export default class StationSection extends React.Component<IStationSectionProps
             <section className="stations-section container">
                 <div className="row">
                     <div className="col-md-4">
-                        <ListGroupInfo  label="stations" 
+                        {/* <ListGroupInfo  label="stations" 
                                         input={this.state.stations}
-                                        selectionCallback={this.originSelection} />
+                                        selectionCallback={this.originSelection} /> */}
                     </div>
 
                     <div className="col-md-8">
@@ -73,10 +103,11 @@ export default class StationSection extends React.Component<IStationSectionProps
                                     stations={this.state.stations}
                                     hoverCallback={this.mapHoveredStation} />
 
-                            <CircleTooltip  text={"test"} 
-                                            x={this.state.tooltipX}
+                            <CircleTooltip  x={this.state.tooltipX}
                                             y={this.state.tooltipY}
-                                            tooltipActive={true} />
+                                            station={this.state.tooltipStation}
+                                            tooltipActive={this.state.tooltipActive}
+                                            text={this.state.tooltipTextCallback} />
                         </div>
                     </div>
                 </div>

@@ -3,10 +3,13 @@ export interface IStationSectionProps {
 }
 
 export interface IStationSectionState {
-    stations: IStation[]
+    stations: IStationDetail[]
     maps: any,
+    tooltipStation: IStationDetail | undefined,
     tooltipX: number,
-    tooltipY: number
+    tooltipY: number,
+    tooltipActive: boolean,
+    tooltipTextCallback: Function
 }
 
 export interface IStation {
@@ -17,6 +20,18 @@ export interface IStation {
     etds: IEtd[];
     name: string;
     abbr: string;
+}
+
+export interface IStationDetail {
+    abbr: string;
+    address: string;
+    city: string;
+    county: string;
+    gtfsLatitude: number;
+    gtfsLongitude: number;
+    name: string;
+    state: string;
+    zipcode: string;
 }
 
 export interface IEtd {
