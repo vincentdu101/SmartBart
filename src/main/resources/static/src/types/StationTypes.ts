@@ -49,3 +49,11 @@ export interface IEstimate {
     bikeflag: boolean;
     delay: number;
 }
+
+export interface IStationsTableProps {
+    stations: IStationDetail[];
+}
+
+export interface IStationsTableState {
+    stations: IStationDetail[];
+}

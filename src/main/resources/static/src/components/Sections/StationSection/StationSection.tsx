@@ -7,6 +7,7 @@ import { Map } from "../../Maps/Map";
 import { MapService } from "../../../services/MapService/MapService";
 import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
 import { ICircleEvent } from "../../../types/MapTypes";
+import StationsTable from "../../StationsTable/StationsTable";
 
 export default class StationSection extends React.Component<IStationSectionProps, IStationSectionState> {
 
@@ -91,13 +92,13 @@ export default class StationSection extends React.Component<IStationSectionProps
         return (
             <section className="stations-section container">
                 <div className="row">
-                    <div className="col-md-4">
-                        {/* <ListGroupInfo  label="stations" 
+                    {/* <div className="col-md-4">
+                        <ListGroupInfo  label="stations" 
                                         input={this.state.stations}
-                                        selectionCallback={this.originSelection} /> */}
-                    </div>
+                                        selectionCallback={this.originSelection} />
+                    </div> */}
 
-                    <div className="col-md-8">
+                    <div className="col-md-12">
                         <div className="panel">
                             <Map    maps={this.state.maps} 
                                     stations={this.state.stations}
@@ -110,6 +111,16 @@ export default class StationSection extends React.Component<IStationSectionProps
                                             text={this.state.tooltipTextCallback} />
                         </div>
                     </div>
+                </div>
+
+                <div className="row">
+                    
+                    <div className="col-md-12">
+                        <div className="panel">
+                            <StationsTable stations={this.state.stations} />
+                        </div>
+                    </div>
+
                 </div>
             </section>
         );
