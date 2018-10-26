@@ -90,7 +90,7 @@ export default class StationSection extends React.Component<IStationSectionProps
     public render(): JSX.Element {
 
         return (
-            <section className="stations-section container">
+            <section className="stations-section container no-gutters">
                 <div className="row">
                     {/* <div className="col-md-4">
                         <ListGroupInfo  label="stations" 
@@ -98,8 +98,8 @@ export default class StationSection extends React.Component<IStationSectionProps
                                         selectionCallback={this.originSelection} />
                     </div> */}
 
-                    <div className="col-md-12">
-                        <div className="panel">
+                    <div className="col-xs-12">
+                        <div className="card">
                             <Map    maps={this.state.maps} 
                                     stations={this.state.stations}
                                     hoverCallback={this.mapHoveredStation} />
@@ -111,12 +111,9 @@ export default class StationSection extends React.Component<IStationSectionProps
                                             text={this.state.tooltipTextCallback} />
                         </div>
                     </div>
-                </div>
-
-                <div className="row">
                     
-                    <div className="col-md-12">
-                        <div className="panel">
+                    <div className="col-xs-12">
+                        <div className="card">
                             <StationsTable stations={this.state.stations} />
                         </div>
                     </div>

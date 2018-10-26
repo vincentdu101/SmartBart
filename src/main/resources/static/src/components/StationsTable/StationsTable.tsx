@@ -28,13 +28,13 @@ export default class StationsTable extends React.Component<IStationsTableProps, 
             console.log(row);
             return (
                 <tr key={row.abbr + index}>
-                    <td key={row.abbr}>{row.abbr}</td>
-                    <td key={row.name}>{row.name}</td>
-                    <td key={row.address}>{row.address}</td>
-                    <td key={row.city}>{row.city}</td>
-                    <td key={row.county}>{row.county}</td>
-                    <td key={row.state}>{row.state}</td>
-                    <td key={row.zipcode}>{row.zipcode}</td>
+                    <td key={"abbr" + index}>{row.abbr}</td>
+                    <td key={"name" + index}>{row.name}</td>
+                    <td key={"address" + index}>{row.address}</td>
+                    <td key={"city" + index}>{row.city}</td>
+                    <td key={"county" + index}>{row.county}</td>
+                    <td key={"state" + index}>{row.state}</td>
+                    <td key={"zipcode" + index}>{row.zipcode}</td>
                     <td key={"options" + index}>Options</td>
                 </tr>
             );
