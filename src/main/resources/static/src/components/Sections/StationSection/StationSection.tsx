@@ -1,8 +1,7 @@
 import * as React from "react";
 import "./StationSection.css";
-import { IStationSectionProps, IStationSectionState, IStationDetail } from "../../../types/StationTypes";
+import { IStationSectionProps, IStationSectionState, IStationInfo } from "../../../types/StationTypes";
 import { StationService } from "../../../services/StationService/StationService";
-// import ListGroupInfo from "../../ListGroup/ListGroupInfo";
 import { Map } from "../../Maps/Map";
 import { MapService } from "../../../services/MapService/MapService";
 import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
@@ -73,7 +72,7 @@ export default class StationSection extends React.Component<IStationSectionProps
         });
     }
 
-    private outputBartText(station: IStationDetail): JSX.Element {
+    private outputBartText(station: IStationInfo): JSX.Element {
         if (station) {
             return (
                 <div className="bart-text">
@@ -92,11 +91,6 @@ export default class StationSection extends React.Component<IStationSectionProps
         return (
             <section className="stations-section container no-gutters">
                 <div className="row">
-                    {/* <div className="col-md-4">
-                        <ListGroupInfo  label="stations" 
-                                        input={this.state.stations}
-                                        selectionCallback={this.originSelection} />
-                    </div> */}
 
                     <div className="col-xs-12">
                         <div className="card">
@@ -111,13 +105,13 @@ export default class StationSection extends React.Component<IStationSectionProps
                                             text={this.state.tooltipTextCallback} />
                         </div>
                     </div>
-                    
+                </div>
+                <div className="row no-gutters">
                     <div className="col-xs-12">
                         <div className="card">
                             <StationsTable stations={this.state.stations} />
                         </div>
                     </div>
-
                 </div>
             </section>
         );

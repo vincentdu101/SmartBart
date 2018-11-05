@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./StationsTable.scss";
-import { IStationsTableProps, IStationsTableState, IStationDetail } from "../../types/StationTypes";
+import { IStationsTableProps, IStationsTableState, IStationInfo } from "../../types/StationTypes";
 import { Table } from "reactstrap";
  
 export default class StationsTable extends React.Component<IStationsTableProps, IStationsTableState> {
@@ -23,8 +23,8 @@ export default class StationsTable extends React.Component<IStationsTableProps, 
         this.setState({stations: nextProps.stations});
     }
 
-    private outputStationRow(stations: IStationDetail[]): JSX.Element[] {
-        return stations.map((row: IStationDetail, index: number) => {
+    private outputStationRow(stations: IStationInfo[]): JSX.Element[] {
+        return stations.map((row: IStationInfo, index: number) => {
             console.log(row);
             return (
                 <tr key={row.abbr + index}>

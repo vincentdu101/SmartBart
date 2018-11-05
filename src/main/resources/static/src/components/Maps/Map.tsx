@@ -10,7 +10,7 @@ import "./Map.scss";
 
 export class Map extends React.Component<IMapProps, IMapState> {
 
-    private width = 960;
+    private width = window.innerWidth;
     private height = 600;
     private center: [number, number] = [-120, 37];
     private offsetLeft = 900;

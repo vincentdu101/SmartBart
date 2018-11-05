@@ -3,9 +3,9 @@ export interface IStationSectionProps {
 }
 
 export interface IStationSectionState {
-    stations: IStationDetail[]
+    stations: IStationInfo[]
     maps: any,
-    tooltipStation: IStationDetail | undefined,
+    tooltipStation: IStationInfo | undefined,
     tooltipX: number,
     tooltipY: number,
     tooltipActive: boolean,
@@ -22,7 +22,7 @@ export interface IStation {
     abbr: string;
 }
 
-export interface IStationDetail {
+export interface IStationInfo {
     abbr: string;
     address: string;
     city: string;
@@ -51,9 +51,9 @@ export interface IEstimate {
 }
 
 export interface IStationsTableProps {
-    stations: IStationDetail[];
+    stations: IStationInfo[];
 }
 
 export interface IStationsTableState {
-    stations: IStationDetail[];
+    stations: IStationInfo[];
 }

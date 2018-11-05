@@ -1,10 +1,10 @@
-import { IStationDetail } from "./StationTypes";
+import { IStationInfo } from "./StationTypes";
 
 export interface ITooltipState {
     text: JSX.Element;
     x: number;
     y: number;
-    station: IStationDetail | undefined,
+    station: IStationInfo | undefined,
     tooltipActive: boolean;
 }
 
@@ -12,6 +12,6 @@ export interface ITooltipProps {
     text: Function;
     x: number;
     y: number;
-    station: IStationDetail | undefined,
+    station: IStationInfo | undefined,
     tooltipActive: boolean;
 }

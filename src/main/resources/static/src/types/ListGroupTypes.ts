@@ -1,11 +1,11 @@
-import { IStationDetail } from "./StationTypes";
+import { IStationInfo } from "./StationTypes";
 
 export interface IListGroupInfoState {
     dropdownOpen: boolean
 }
 
 export interface IListGroupInfoProp {
-    input: IStationDetail[],
+    input: IStationInfo[],
     label: string,
     selectionCallback: Function
 }

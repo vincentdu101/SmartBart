@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ITooltipState, ITooltipProps } from "../../types/TooltipTypes";
-// import { IStationDetail } from "../../types/StationTypes";
+// import { IStationInfo } from "../../types/StationTypes";
 import "./CircleTooltip.css";
 
 export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState> {
