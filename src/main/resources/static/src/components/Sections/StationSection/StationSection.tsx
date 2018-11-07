@@ -6,7 +6,8 @@ import { Map } from "../../Maps/Map";
 import { MapService } from "../../../services/MapService/MapService";
 import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
 import { ICircleEvent } from "../../../types/MapTypes";
-import StationsTable from "../../StationsTable/StationsTable";
+// import StationsTable from "../../StationsTable/StationsTable";
+import { Card, CardText, CardBody, CardTitle, Button } from "reactstrap";
 
 export default class StationSection extends React.Component<IStationSectionProps, IStationSectionState> {
 
@@ -18,6 +19,7 @@ export default class StationSection extends React.Component<IStationSectionProps
         this.originSelection = this.originSelection.bind(this);
         this.mapHoveredStation = this.mapHoveredStation.bind(this);
         this.outputBartText = this.outputBartText.bind(this);
+        this.outputStationCards = this.outputStationCards.bind(this);
 
         this.state = {
             stations: [],
@@ -86,6 +88,27 @@ export default class StationSection extends React.Component<IStationSectionProps
         }
     }
 
+    private outputStationCards(): JSX.Element[] {
+        return this.state.stations.map((station, index) => {
+            return (
+                <div className="col-xs-12 col-sm-3 station-card" key={"station-card-wrap" + index}>
+                    <Card key={"station-card-" + index}>
+                        <CardBody key={"station-body-" + index}>
+                            <CardTitle key={"station-title-" + index}>{station.abbr}</CardTitle>
+                            <CardText key={"station-text-" + index}>
+                                <div className="bart-text">
+                                    <div>{station.address}</div>
+                                    <div>{station.city}, {station.state} {station.zipcode}</div>
+                                </div>
+                            </CardText>
+                            <Button key={"station-btn-" + index}>Button</Button>
+                        </CardBody>
+                    </Card>
+                </div>
+            );
+        });
+    }
+
     public render(): JSX.Element {
 
         return (
@@ -107,11 +130,7 @@ export default class StationSection extends React.Component<IStationSectionProps
                     </div>
                 </div>
                 <div className="row no-gutters">
-                    <div className="col-xs-12">
-                        <div className="card">
-                            <StationsTable stations={this.state.stations} />
-                        </div>
-                    </div>
+                    {this.outputStationCards()}
                 </div>
             </section>
         );
