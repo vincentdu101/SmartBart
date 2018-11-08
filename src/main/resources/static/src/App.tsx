@@ -1,16 +1,53 @@
 import * as React from 'react';
 import './App.css';
-import logo from './logo.svg';
+import {IAppProps, IAppState} from "./types/AppTypes";
 import Main from "./components/Main";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink} from 'reactstrap';
 
-class App extends React.Component {
+class App extends React.Component<IAppProps, IAppState> {
+
+  constructor(props: IAppProps) {
+      super(props);
+
+      this.toggle.bind(this);
+
+      this.state = {
+          isOpen: false
+      };
+  }
+
+  private toggle(): void {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        <div>
+          <Navbar color="light" light={true} expand="md">
+            <NavbarBrand href="/">reactstrap</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar={true}>
+              <Nav className="ml-auto" navbar={true}>
+                <NavItem>
+                  <NavLink href="/components/">Components</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
         
         <Main />
       </div>

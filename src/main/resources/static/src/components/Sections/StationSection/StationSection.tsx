@@ -7,7 +7,7 @@ import { MapService } from "../../../services/MapService/MapService";
 import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
 import { ICircleEvent } from "../../../types/MapTypes";
 // import StationsTable from "../../StationsTable/StationsTable";
-import { Card, CardText, CardBody, CardTitle, Button } from "reactstrap";
+import { Card, CardBody, CardTitle, Button } from "reactstrap";
 
 export default class StationSection extends React.Component<IStationSectionProps, IStationSectionState> {
 
@@ -95,12 +95,10 @@ export default class StationSection extends React.Component<IStationSectionProps
                     <Card key={"station-card-" + index}>
                         <CardBody key={"station-body-" + index}>
                             <CardTitle key={"station-title-" + index}>{station.abbr}</CardTitle>
-                            <CardText key={"station-text-" + index}>
-                                <div className="bart-text">
-                                    <div>{station.address}</div>
-                                    <div>{station.city}, {station.state} {station.zipcode}</div>
-                                </div>
-                            </CardText>
+                            <div className="bart-text">
+                                <div>{station.address}</div>
+                                <div>{station.city}, {station.state} {station.zipcode}</div>
+                            </div>
                             <Button key={"station-btn-" + index}>Button</Button>
                         </CardBody>
                     </Card>
@@ -112,7 +110,7 @@ export default class StationSection extends React.Component<IStationSectionProps
     public render(): JSX.Element {
 
         return (
-            <section className="stations-section container no-gutters">
+            <section className="stations-section no-gutters">
                 <div className="row">
 
                     <div className="col-xs-12">
