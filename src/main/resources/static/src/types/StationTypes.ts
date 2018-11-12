@@ -1,8 +1,8 @@
-export interface IStationSectionProps {
+export interface IStationsSectionProps {
 
 }
 
-export interface IStationSectionState {
+export interface IStationsSectionState {
     stations: IStationInfo[]
     maps: any,
     tooltipStation: IStationInfo | undefined,
@@ -10,6 +10,18 @@ export interface IStationSectionState {
     tooltipY: number,
     tooltipActive: boolean,
     tooltipTextCallback: Function
+}
+
+export interface IStationSectionProps {
+    match: {
+        params: {
+            abbr: string
+        }
+    }
+}
+
+export interface IStationSectionState {
+    abbr: string;
 }
 
 export interface IStation {
