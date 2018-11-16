@@ -22,6 +22,7 @@ export interface IStationSectionProps {
 
 export interface IStationSectionState {
     abbr: string;
+    station: IStation | undefined;
 }
 
 export interface IStation {

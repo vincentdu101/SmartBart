@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 public class Estimate {
 
-    private int minutes;
+    private String minutes;
     private int platform;
     private String direction;
     private int length;
@@ -14,7 +14,7 @@ public class Estimate {
     public Estimate() {}
 
     public Estimate(JSONObject estimate) {
-        this.minutes = Integer.parseInt(estimate.getString("minutes"));
+        this.minutes = estimate.getString("minutes");
         this.platform = Integer.parseInt(estimate.getString("platform"));
         this.direction = estimate.getString("direction");
         this.length = Integer.parseInt(estimate.getString("length"));
@@ -22,11 +22,11 @@ public class Estimate {
         this.delay = Integer.parseInt(estimate.getString("delay"));
     }
 
-    public int getMinutes() {
+    public String getMinutes() {
         return minutes;
     }
 
-    public void setMinutes(int minutes) {
+    public void setMinutes(String minutes) {
         this.minutes = minutes;
     }
 

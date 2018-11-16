@@ -1,9 +1,9 @@
-import {IEstimate} from "./StationTypes";
+import {IEtd} from "./StationTypes";
 
 export interface IActivityFeedProps {
-    feed: IEstimate[]
+    feed: IEtd[]
 }
 
 export interface IActivityFeedState {
-    feed: IEstimate[]
+    feed: IEtd[]
 }

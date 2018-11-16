@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./ActivityFeed.css";
-import { Media } from 'reactstrap';
-import {IEstimate} from "../../types/StationTypes";
+import {IEtd, IEstimate} from "../../types/StationTypes";
 import {IActivityFeedProps, IActivityFeedState} from "../../types/ActivityTypes";
+import {Button, Card } from "reactstrap";
 
 export default class ActivityFeed extends React.Component<IActivityFeedProps, IActivityFeedState> {
 
@@ -24,18 +24,30 @@ export default class ActivityFeed extends React.Component<IActivityFeedProps, IA
         }
     } 
 
-    generateActivityRows(rows: IEstimate[]): JSX.Element[] {
-        return rows.map((row: IEstimate, index: number) => {
+    generateEstimates(estimates: IEstimate[]): JSX.Element[] {
+        return estimates.map((estimate: IEstimate, index) => {
             return (
-                <Media key={"feed-" + index}>
-                    <Media body={true} key={"feed-body-" + index}>
-                        <Media heading={true} key={"feed-heading" + index}>
-                            {row}
-                        </Media>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </Media>
-                </Media>
+                <Card key={"estimate-card" + index}>
+                    <div key={"estimate-card-body" + index}>
+                        {estimate.minutes}
+                    </div>
+                </Card>
             );
+        });
+    }
+
+    generateActivityRows(rows: IEtd[]): JSX.Element[] {
+        return rows.map((etd: IEtd, index: number) => {
+            return (
+                <div key={"etd-body"+index}>
+                    <Button key={"est" + index} color="primary" id="toggler" style={{ marginBottom: '1rem' }}>
+                        {etd.abbreviation} - {etd.destination}
+                    </Button>
+                    {/* <UncontrolledCollapse key={"toggle" + index} toggler="#toggler"> */}
+                        {this.generateEstimates(etd.estimates)}
+                    {/* </UncontrolledCollapse> */}
+                </div>
+            );            
         });
     }
 
