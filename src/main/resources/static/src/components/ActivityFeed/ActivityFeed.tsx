@@ -2,15 +2,18 @@ import * as React from "react";
 import "./ActivityFeed.css";
 import {IEtd, IEstimate} from "../../types/StationTypes";
 import {IActivityFeedProps, IActivityFeedState} from "../../types/ActivityTypes";
-import {Button, Card } from "reactstrap";
+import {Card, Collapse, ListGroup, ListGroupItem } from "reactstrap";
 
 export default class ActivityFeed extends React.Component<IActivityFeedProps, IActivityFeedState> {
 
     constructor(props: IActivityFeedProps) {
         super(props);
 
+        this.toggleCollapse = this.toggleCollapse.bind(this);
+
         this.state = {
-            feed: []
+            feed: [],
+            collapse: {}
         };
     }
 
@@ -24,12 +27,23 @@ export default class ActivityFeed extends React.Component<IActivityFeedProps, IA
         }
     } 
 
+    private toggleCollapse(event: any): void {
+        let collapse = this.state.collapse;
+        collapse[event.target.dataset.abbr] = !collapse[event.target.dataset.abbr];
+        this.setState({collapse: collapse});
+    }
+
     generateEstimates(estimates: IEstimate[]): JSX.Element[] {
         return estimates.map((estimate: IEstimate, index) => {
             return (
                 <Card key={"estimate-card" + index}>
-                    <div key={"estimate-card-body" + index}>
-                        {estimate.minutes}
+                    <div key={"estimate-card-body" + index} className="station-row-info">
+                        <div key={"estimate-bike" + index}>Bike: {estimate.bikeflag}</div>
+                        <div key={"estimate-delay" + index}>Minutes Delayed: {estimate.delay}</div>
+                        <div key={"estimate-direction" + index}>Direction: {estimate.direction}</div>
+                        <div key={"estimate-length" + index}>Length of Train: {estimate.length}</div>
+                        <div key={"estimate-minutes" + index}>Minutes before Arrival: {estimate.minutes}</div>
+                        <div key={"estimate-platform" + index}>Platform: {estimate.platform}</div>
                     </div>
                 </Card>
             );
@@ -39,23 +53,25 @@ export default class ActivityFeed extends React.Component<IActivityFeedProps, IA
     generateActivityRows(rows: IEtd[]): JSX.Element[] {
         return rows.map((etd: IEtd, index: number) => {
             return (
-                <div key={"etd-body"+index}>
-                    <Button key={"est" + index} color="primary" id="toggler" style={{ marginBottom: '1rem' }}>
+                <ListGroupItem key={"est" + index}  
+                            id="toggler" 
+                            data-abbr={etd.abbreviation}
+                            style={{ marginBottom: '1rem' }}
+                            onClick={this.toggleCollapse}>
                         {etd.abbreviation} - {etd.destination}
-                    </Button>
-                    {/* <UncontrolledCollapse key={"toggle" + index} toggler="#toggler"> */}
+                    <Collapse isOpen={!!this.state.collapse[etd.abbreviation]}>
                         {this.generateEstimates(etd.estimates)}
-                    {/* </UncontrolledCollapse> */}
-                </div>
+                    </Collapse>
+                </ListGroupItem>
             );            
         });
     }
 
     render(): JSX.Element {
         return (
-            <section className="activity-feed">
+            <ListGroup className="activity-feed">
                 {this.generateActivityRows(this.state.feed)}
-            </section>
+            </ListGroup>
         );
     }
 

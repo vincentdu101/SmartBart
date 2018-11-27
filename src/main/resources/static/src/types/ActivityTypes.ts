@@ -5,5 +5,8 @@ export interface IActivityFeedProps {
 }
 
 export interface IActivityFeedState {
-    feed: IEtd[]
+    feed: IEtd[],
+    collapse: {
+        abbr?: boolean
+    }
 }
