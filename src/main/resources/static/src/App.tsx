@@ -39,7 +39,7 @@ class App extends React.Component<IAppProps, IAppState> {
             <Collapse isOpen={this.state.isOpen} navbar={true}>
               <Nav className="ml-auto" navbar={true}>
                 <NavItem>
-                  <NavLink href="/components/">Planner</NavLink>
+                  <NavLink href="/planner">Planner</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>

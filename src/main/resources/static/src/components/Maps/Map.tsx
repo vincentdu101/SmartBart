@@ -8,6 +8,8 @@ import * as stateFeatures from "../../data/california-counties.json";
 import { GeoProjection } from "d3";
 import "./Map.scss";
 
+// https://bl.ocks.org/mbostock/4e3925cdc804db257a86fdef3a032a45
+
 export class Map extends React.Component<IMapProps, IMapState> {
 
     private width = window.innerWidth;
@@ -24,6 +26,10 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.generatePath = this.generatePath.bind(this);
         this.generateViewBox = this.generateViewBox.bind(this);
         this.onCircleInteraction = this.onCircleInteraction.bind(this);
+        this.zoom = this.zoom.bind(this);
+        this.zoomed = this.zoomed.bind(this);
+        this.setupZoom = this.setupZoom.bind(this);
+        this.updateDimensions = this.updateDimensions.bind(this);
 
         this.state = {
             states: stateIds,
@@ -33,8 +39,15 @@ export class Map extends React.Component<IMapProps, IMapState> {
         };
     }
 
+    private updateDimensions(): void {
+        console.log(window.innerWidth);
+        this.width = window.innerWidth;
+    }
+
     public componentDidMount(): void {
+        this.setupZoom();
         this.setState({maps: null});
+        window.addEventListener("resize", this.updateDimensions);
     }
 
     public componentDidUpdate(): void {
@@ -50,6 +63,32 @@ export class Map extends React.Component<IMapProps, IMapState> {
                 .center(this.center)
                 .translate([ (this.width / 2 + this.offsetLeft), (this.height / 2) + this.offsetTop])
                 .scale(this.width * this.scaleRate);
+    }
+
+    private setupZoom(): any {
+        console.log("AAA");
+        let svg = d3.select("svg#bart-map");
+        svg.transition()
+            .duration(750)
+            .call(this.zoom);
+
+        svg.append("rect")
+            .attr("width", this.width)
+            .attr("height", this.height)
+            .style("fill", "none")
+            .style("pointer-events", "all");
+    }
+
+    private zoom(): any {
+        return d3.zoom()
+            .scaleExtent([1, 8])
+            .on("zoom", this.zoomed);
+    }
+
+    private zoomed(): void {
+        console.log("test");
+        console.log(d3.event.transform);
+        d3.select("g").attr(d3.event.transform);
     }
 
     private onCircleInteraction(event: any): void {
@@ -155,6 +194,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
             <div className="map-container">
                 <svg
                     className={`map US`}
+                    id="bart-map"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox={this.generateViewBox()}
                     width={this.width}
