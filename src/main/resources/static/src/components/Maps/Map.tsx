@@ -51,6 +51,11 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     public componentDidUpdate(): void {
+        console.log(this.refs.svg);
+        let svg = d3.select("svg#bart-map");
+        svg.transition()
+            .duration(750)
+            .call(this.zoom);
 
     }
 
@@ -66,7 +71,6 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private setupZoom(): any {
-        console.log("AAA");
         let svg = d3.select("svg#bart-map");
         svg.transition()
             .duration(750)

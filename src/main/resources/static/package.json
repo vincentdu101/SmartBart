@@ -22,7 +22,7 @@
     "react-redux": "^5.1.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "2.17.0",
+    "react-scripts-ts": "^4.0.8",
     "react-transition-group": "^2.4.0",
     "reactstrap": "^6.3.1",
     "topojson": "^3.0.2",
@@ -43,5 +43,11 @@
     "@types/react-dom": "^16.0.9",
     "@types/react-redux": "^6.0.9",
     "typescript": "^3.0.1"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
