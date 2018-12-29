@@ -30,13 +30,51 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.zoomed = this.zoomed.bind(this);
         this.setupZoom = this.setupZoom.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.handleMouseMove = this.handleMouseMove.bind(this);
+        this.handleMouseUp = this.handleMouseUp.bind(this);
+        this.handleMouseDown = this.handleMouseDown.bind(this);
+        this.handleTouchStart = this.handleTouchStart.bind(this);
+        this.handleTouchMove = this.handleTouchMove.bind(this);
 
         this.state = {
             states: stateIds,
             maps: null,
             stations: [],
-            tooltipActive: false
+            tooltipActive: false,
+            translateX: 0,
+            translateY: 0,
+            scale: this.scaleRate
         };
+    }
+
+    private handleMouseMove({ pageX, pageY, clientX, clientY }: any): void {
+        let coords = { pageX, pageY, clientX, clientY };
+        console.log(coords);
+        this.setState({translateX: 100, translateY: 100, scale: 30});
+    }
+
+    private handleMouseUp({ pageX, pageY, clientX, clientY }: any): void {
+        let coords = { pageX, pageY, clientX, clientY };
+        console.log(coords);
+        this.setState({translateX: 100, translateY: 100, scale: 30});
+    }
+
+    private handleMouseDown({ pageX, pageY, clientX, clientY }: any): void {
+        let coords = { pageX, pageY, clientX, clientY };
+        console.log(coords);
+        this.setState({translateX: 100, translateY: 100, scale: 30});
+    }
+
+    private handleTouchStart({ pageX, pageY, clientX, clientY }: any): void {
+        let coords = { pageX, pageY, clientX, clientY };
+        console.log(coords);
+        this.setState({translateX: 100, translateY: 100, scale: 30});
+    }
+
+    private handleTouchMove({ pageX, pageY, clientX, clientY }: any): void {
+        let coords = { pageX, pageY, clientX, clientY };
+        console.log(coords);
+        this.setState({translateX: 100, translateY: 100, scale: 30});
     }
 
     private updateDimensions(): void {
@@ -46,12 +84,11 @@ export class Map extends React.Component<IMapProps, IMapState> {
 
     public componentDidMount(): void {
         this.setupZoom();
-        this.setState({maps: null});
+        this.setState({maps: null, translateX: 0, translateY: 0, scale: 0});
         window.addEventListener("resize", this.updateDimensions);
     }
 
     public componentDidUpdate(): void {
-        console.log(this.refs.svg);
         let svg = d3.select("svg#bart-map");
         svg.transition()
             .duration(750)
@@ -66,8 +103,8 @@ export class Map extends React.Component<IMapProps, IMapState> {
     private projection(): GeoProjection {
         return d3.geoMercator()
                 .center(this.center)
-                .translate([ (this.width / 2 + this.offsetLeft), (this.height / 2) + this.offsetTop])
-                .scale(this.width * this.scaleRate);
+                .translate([ (this.width / 2 + this.offsetLeft + this.state.translateX), (this.height / 2) + this.offsetTop + this.state.translateY])
+                .scale(this.width * this.scaleRate + this.state.scale);
     }
 
     private setupZoom(): any {
@@ -201,6 +238,12 @@ export class Map extends React.Component<IMapProps, IMapState> {
                     id="bart-map"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox={this.generateViewBox()}
+                    onMouseMove={ this.handleMouseMove }
+                    onMouseUp={ this.handleMouseUp }
+                    onMouseDown={ this.handleMouseDown }
+                    onTouchStart={ this.handleTouchStart }
+                    onTouchMove={ this.handleTouchMove }
+                    onTouchEnd={ this.handleMouseUp }
                     width={this.width}
                     height={this.height}
                 >

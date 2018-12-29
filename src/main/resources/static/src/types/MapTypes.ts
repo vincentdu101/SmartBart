@@ -25,6 +25,9 @@ export interface IMapState {
     states: any;
     stations: any[];
     tooltipActive: boolean;
+    translateX: number;
+    translateY: number;
+    scale: number;
 }
 
 export interface ICircleEvent {
