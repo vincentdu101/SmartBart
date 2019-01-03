@@ -28,6 +28,8 @@ export interface IMapState {
     translateX: number;
     translateY: number;
     scale: number;
+    translateOn: boolean;
+    zoomOn: boolean;
 }
 
 export interface ICircleEvent {

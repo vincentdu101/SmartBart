@@ -18,6 +18,8 @@ export class Map extends React.Component<IMapProps, IMapState> {
     private offsetLeft = 900;
     private offsetTop = 550;
     private scaleRate = 30;
+    private startPageX = 0;
+    private startPageY = 0;
 
     constructor(props: any) {
         super(props);
@@ -26,7 +28,6 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.generatePath = this.generatePath.bind(this);
         this.generateViewBox = this.generateViewBox.bind(this);
         this.onCircleInteraction = this.onCircleInteraction.bind(this);
-        this.zoom = this.zoom.bind(this);
         this.zoomed = this.zoomed.bind(this);
         this.setupZoom = this.setupZoom.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
@@ -43,38 +44,47 @@ export class Map extends React.Component<IMapProps, IMapState> {
             tooltipActive: false,
             translateX: 0,
             translateY: 0,
-            scale: this.scaleRate
+            scale: this.scaleRate,
+            translateOn: false,
+            zoomOn: false
         };
     }
 
+    private translatePosition(pageX: number, pageY: number): void {
+        if (this.state.translateOn) {
+            let pageXDiff = pageX - this.startPageX;
+            let pageYDiff = pageY - this.startPageY;
+            console.log(pageX);
+            console.log(pageY);
+            console.log(this.startPageX);
+            console.log(this.startPageY);
+            this.setState({translateX: pageXDiff, translateY: pageYDiff, scale: 30});
+        }
+    }
+
     private handleMouseMove({ pageX, pageY, clientX, clientY }: any): void {
-        let coords = { pageX, pageY, clientX, clientY };
-        console.log(coords);
-        this.setState({translateX: 100, translateY: 100, scale: 30});
+        this.translatePosition(pageX, pageY);
     }
 
     private handleMouseUp({ pageX, pageY, clientX, clientY }: any): void {
-        let coords = { pageX, pageY, clientX, clientY };
-        console.log(coords);
-        this.setState({translateX: 100, translateY: 100, scale: 30});
+        this.startPageX = pageX;
+        this.startPageY = pageY;
     }
 
     private handleMouseDown({ pageX, pageY, clientX, clientY }: any): void {
-        let coords = { pageX, pageY, clientX, clientY };
-        console.log(coords);
-        this.setState({translateX: 100, translateY: 100, scale: 30});
+        this.startPageX = pageX;
+        this.startPageY = pageY;
+        this.setState({translateOn: !this.state.translateOn});
     }
 
     private handleTouchStart({ pageX, pageY, clientX, clientY }: any): void {
-        let coords = { pageX, pageY, clientX, clientY };
-        console.log(coords);
-        this.setState({translateX: 100, translateY: 100, scale: 30});
+        this.startPageX = pageX;
+        this.startPageY = pageY;
+        this.setState({translateOn: !this.state.translateOn});
     }
 
     private handleTouchMove({ pageX, pageY, clientX, clientY }: any): void {
-        let coords = { pageX, pageY, clientX, clientY };
-        console.log(coords);
-        this.setState({translateX: 100, translateY: 100, scale: 30});
+        this.translatePosition(pageX, pageY);
     }
 
     private updateDimensions(): void {
@@ -84,15 +94,13 @@ export class Map extends React.Component<IMapProps, IMapState> {
 
     public componentDidMount(): void {
         this.setupZoom();
-        this.setState({maps: null, translateX: 0, translateY: 0, scale: 0});
-        window.addEventListener("resize", this.updateDimensions);
+        this.setState({
+            maps: null, translateX: 0, translateY: 0, scale: 0, 
+            translateOn: false, zoomOn: false
+        });
     }
 
     public componentDidUpdate(): void {
-        let svg = d3.select("svg#bart-map");
-        svg.transition()
-            .duration(750)
-            .call(this.zoom);
 
     }
 
@@ -108,22 +116,6 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private setupZoom(): any {
-        let svg = d3.select("svg#bart-map");
-        svg.transition()
-            .duration(750)
-            .call(this.zoom);
-
-        svg.append("rect")
-            .attr("width", this.width)
-            .attr("height", this.height)
-            .style("fill", "none")
-            .style("pointer-events", "all");
-    }
-
-    private zoom(): any {
-        return d3.zoom()
-            .scaleExtent([1, 8])
-            .on("zoom", this.zoomed);
     }
 
     private zoomed(): void {
@@ -250,6 +242,12 @@ export class Map extends React.Component<IMapProps, IMapState> {
                     {this.generateMap(path)}
                     {this.generateCircles()}
                 </svg>
+
+                <div className="row">
+                    Zoom
+                    <div className="btn btn-primary">+</div>
+                    <div className="btn btn-primary">-</div>
+                </div>
             </div>
         );
     }
