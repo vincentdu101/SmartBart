@@ -27,9 +27,10 @@ export interface IMapState {
     tooltipActive: boolean;
     translateX: number;
     translateY: number;
-    scale: number;
     translateOn: boolean;
-    zoomOn: boolean;
+    startPageX: number;
+    startPageY: number;
+    zoom: number;
 }
 
 export interface ICircleEvent {

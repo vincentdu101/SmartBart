@@ -18,8 +18,6 @@ export class Map extends React.Component<IMapProps, IMapState> {
     private offsetLeft = 900;
     private offsetTop = 550;
     private scaleRate = 30;
-    private startPageX = 0;
-    private startPageY = 0;
 
     constructor(props: any) {
         super(props);
@@ -28,14 +26,14 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.generatePath = this.generatePath.bind(this);
         this.generateViewBox = this.generateViewBox.bind(this);
         this.onCircleInteraction = this.onCircleInteraction.bind(this);
-        this.zoomed = this.zoomed.bind(this);
-        this.setupZoom = this.setupZoom.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
         this.handleMouseUp = this.handleMouseUp.bind(this);
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleTouchStart = this.handleTouchStart.bind(this);
         this.handleTouchMove = this.handleTouchMove.bind(this);
+        this.zoomIn = this.zoomIn.bind(this);
+        this.zoomOut = this.zoomOut.bind(this);
 
         this.state = {
             states: stateIds,
@@ -44,21 +42,18 @@ export class Map extends React.Component<IMapProps, IMapState> {
             tooltipActive: false,
             translateX: 0,
             translateY: 0,
-            scale: this.scaleRate,
             translateOn: false,
-            zoomOn: false
+            zoom: this.scaleRate,
+            startPageX: 0,
+            startPageY: 0
         };
     }
 
     private translatePosition(pageX: number, pageY: number): void {
         if (this.state.translateOn) {
-            let pageXDiff = pageX - this.startPageX;
-            let pageYDiff = pageY - this.startPageY;
-            console.log(pageX);
-            console.log(pageY);
-            console.log(this.startPageX);
-            console.log(this.startPageY);
-            this.setState({translateX: pageXDiff, translateY: pageYDiff, scale: 30});
+            let pageXDiff = pageX - this.state.startPageX;
+            let pageYDiff = pageY - this.state.startPageY;
+            this.setState({translateX: pageXDiff, translateY: pageYDiff});
         }
     }
 
@@ -67,19 +62,16 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private handleMouseUp({ pageX, pageY, clientX, clientY }: any): void {
-        this.startPageX = pageX;
-        this.startPageY = pageY;
+        this.setState({startPageX: pageX, startPageY: pageY});
     }
 
     private handleMouseDown({ pageX, pageY, clientX, clientY }: any): void {
-        this.startPageX = pageX;
-        this.startPageY = pageY;
+        this.setState({startPageX: pageX, startPageY: pageY});
         this.setState({translateOn: !this.state.translateOn});
     }
 
     private handleTouchStart({ pageX, pageY, clientX, clientY }: any): void {
-        this.startPageX = pageX;
-        this.startPageY = pageY;
+        this.setState({startPageX: pageX, startPageY: pageY});
         this.setState({translateOn: !this.state.translateOn});
     }
 
@@ -88,15 +80,21 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private updateDimensions(): void {
-        console.log(window.innerWidth);
         this.width = window.innerWidth;
     }
 
+    private zoomIn(): void {
+        this.setState({zoom: this.state.zoom + 200});
+    }
+
+    private zoomOut(): void {
+        this.setState({zoom: this.state.zoom - 200});
+    }
+
     public componentDidMount(): void {
-        this.setupZoom();
         this.setState({
-            maps: null, translateX: 0, translateY: 0, scale: 0, 
-            translateOn: false, zoomOn: false
+            maps: null, translateX: 0, translateY: 0, 
+            translateOn: false, zoom: this.scaleRate
         });
     }
 
@@ -112,16 +110,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
         return d3.geoMercator()
                 .center(this.center)
                 .translate([ (this.width / 2 + this.offsetLeft + this.state.translateX), (this.height / 2) + this.offsetTop + this.state.translateY])
-                .scale(this.width * this.scaleRate + this.state.scale);
-    }
-
-    private setupZoom(): any {
-    }
-
-    private zoomed(): void {
-        console.log("test");
-        console.log(d3.event.transform);
-        d3.select("g").attr(d3.event.transform);
+                .scale(this.width * this.scaleRate + this.state.zoom);
     }
 
     private onCircleInteraction(event: any): void {
@@ -243,10 +232,17 @@ export class Map extends React.Component<IMapProps, IMapState> {
                     {this.generateCircles()}
                 </svg>
 
-                <div className="row">
-                    Zoom
-                    <div className="btn btn-primary">+</div>
-                    <div className="btn btn-primary">-</div>
+                <div className="card">
+                    <div className="row align-items-center">
+                        <div 
+                            className="btn btn-primary col"
+                            onClick={this.zoomIn}
+                        >Zoom In</div>
+                        <div 
+                            className="btn btn-warning col"
+                            onClick={this.zoomOut}
+                        >Zoom Out</div>
+                    </div>
                 </div>
             </div>
         );
