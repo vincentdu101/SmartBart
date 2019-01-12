@@ -72,11 +72,13 @@ export default class PlannerTable extends React.Component<IPlannerProps, IPlanne
         return (
             <section className="planner-table">
                 <div className="card">
-                    <div className="card-body">
+                    <div className="card-body align-items-start">
+                        <div className="card-text">
                         <div>Origin: {this.state.plans.origin}</div>
                         <div>Destination: {this.state.plans.destination}</div>
                         <div>Schedule Num: {this.state.plans.schedNum}</div>
                         <div>Schedule: {this.printRequestDateTime(this.state.plans.schedule)}</div>
+                        </div>
                     </div>
                 </div>
                 <Table className="table-bordered">

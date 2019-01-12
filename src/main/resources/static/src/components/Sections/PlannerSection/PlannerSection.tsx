@@ -15,7 +15,9 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.destinationSelection = this.destinationSelection.bind(this);
 
         this.state = {
+            maps: null,
             stations: [],
+            focusedStations: [],
             origin: "",
             destination: ""
         };
@@ -43,15 +45,24 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
     public render(): JSX.Element {
         return (
             <section className="planner-section">
-                <DropdownInfo   input={this.state.stations}
-                                label="Origin" 
-                                selectionCallback={this.originSelection} />
-                <DropdownInfo   input={this.state.stations} 
-                                label="Destination"
-                                selectionCallback={this.destinationSelection} />
+                <div className="row planner-menu-row">
+                    <div className="col-xs-6 first-col">
+                        <DropdownInfo   input={this.state.stations}
+                                        label="Origin" 
+                                        selectionCallback={this.originSelection} />
+                    </div>
+                    <div className="col-xs-6">
+                        <DropdownInfo   input={this.state.stations} 
+                                        label="Destination"
+                                        selectionCallback={this.destinationSelection} />
+                    </div>
+                </div>
                 <PlannerTable   origin={this.state.origin} 
                                 destination={this.state.destination} />
 
+                <Map            maps={this.state.maps} 
+                                stations={this.state.stations}
+                                hoverCallback={this.mapHoveredStation} />                                
             </section>
         );
     }
