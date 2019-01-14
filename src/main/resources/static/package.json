@@ -26,7 +26,8 @@
     "react-transition-group": "^2.4.0",
     "reactstrap": "^6.3.1",
     "topojson": "^3.0.2",
-    "topojson-client": "^3.0.0"
+    "topojson-client": "^3.0.0",
+    "webpack-dev-server": "^3.1.14"
   },
   "scripts": {
     "start": "react-scripts-ts start && npm run watch-css",

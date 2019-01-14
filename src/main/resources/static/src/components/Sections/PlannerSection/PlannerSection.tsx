@@ -4,6 +4,7 @@ import { IPlannerSectionState, IPlannerSectionProps } from "../../../types/Plann
 import PlannerTable from "../../PlannerTable/PlannerTable";
 import DropdownInfo from "../../Dropdown/DropdownInfo";
 import { StationService } from "../../../services/StationService/StationService";
+import { Map } from "../../Maps/Map";
 
 export default class PlannerSection extends React.Component<{}, IPlannerSectionState> {
 
@@ -17,6 +18,8 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.state = {
             maps: null,
             stations: [],
+            mapStations: [],
+            mapSelectedStations: [],
             focusedStations: [],
             origin: "",
             destination: ""
@@ -26,11 +29,13 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
     private loadStationsInfo(): void {
         this.setState({stations: []});
         StationService.getStationsInfo().then(data => {
-            this.setState({stations: data});
+            this.setState({stations: data, mapStations: data});
         });
     }
 
     private originSelection(origin: string): void {
+        let selectedStation = StationService.filterForStation(origin, this.state.mapStations);
+        let mapSelectedStations = this.state.mapSelectedStations.push(selectedStation);
         this.setState({origin: origin});
     }
 
@@ -60,9 +65,8 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
                 <PlannerTable   origin={this.state.origin} 
                                 destination={this.state.destination} />
 
-                <Map            maps={this.state.maps} 
-                                stations={this.state.stations}
-                                hoverCallback={this.mapHoveredStation} />                                
+                <Map    maps={this.state.maps} 
+                        stations={this.state.mapSelectedStations} />                                
             </section>
         );
     }

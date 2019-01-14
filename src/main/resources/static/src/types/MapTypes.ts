@@ -17,7 +17,7 @@ export interface IMapProps {
     mapType?: string;
     maps: any;
     stations: any;
-    hoverCallback: Function;
+    hoverCallback?: Function;
 }
 
 export interface IMapState {

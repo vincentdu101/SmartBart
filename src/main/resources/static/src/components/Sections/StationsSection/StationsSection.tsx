@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./StationsSection.css";
-import { IStationsSectionProps, IStationsSectionState, IStationInfo } from "../../../types/StationTypes";
+import { IStationsSectionProps, IStationsSectionState } from "../../../types/StationTypes";
 import { StationService } from "../../../services/StationService/StationService";
 import { Map } from "../../Maps/Map";
 import { MapService } from "../../../services/MapService/MapService";
@@ -18,7 +18,6 @@ export default class StationsSection extends React.Component<IStationsSectionPro
         this.loadMapsInfo = this.loadMapsInfo.bind(this);
         this.originSelection = this.originSelection.bind(this);
         this.mapHoveredStation = this.mapHoveredStation.bind(this);
-        this.outputBartText = this.outputBartText.bind(this);
         this.outputStationCards = this.outputStationCards.bind(this);
 
         this.state = {
@@ -28,7 +27,7 @@ export default class StationsSection extends React.Component<IStationsSectionPro
             tooltipX: 0,
             tooltipY: 0,
             tooltipActive: false,
-            tooltipTextCallback: this.outputBartText
+            tooltipTextCallback: StationService.outputBartText
         };
     }
 
@@ -40,7 +39,7 @@ export default class StationsSection extends React.Component<IStationsSectionPro
             tooltipX: 0, 
             tooltipY: 0,
             tooltipActive: false,
-            tooltipTextCallback: this.outputBartText
+            tooltipTextCallback: StationService.outputBartText
         });
         this.loadStationsInfo();
     }
@@ -70,22 +69,8 @@ export default class StationsSection extends React.Component<IStationsSectionPro
             tooltipY: position.y,
             tooltipStation: station,
             tooltipActive: true,
-            tooltipTextCallback: this.outputBartText
+            tooltipTextCallback: StationService.outputBartText
         });
-    }
-
-    private outputBartText(station: IStationInfo): JSX.Element {
-        if (station) {
-            return (
-                <div className="bart-text">
-                    <div>{station.name} - {station.abbr}</div>
-                    <div>{station.address}</div>
-                    <div>{station.city}, {station.state} {station.zipcode}</div>
-                </div>
-            );
-        } else {
-            return (<div>test</div>);
-        }
     }
 
     private outputStationCards(): JSX.Element[] {

@@ -1,3 +1,5 @@
+import { IStationInfo } from "../types/StationTypes";
+
 export enum PlannerSectionType {
     ARRIVAL = <any>"ARRIVAL",
     DESTINATION = <any>"DESTINATION"
@@ -32,7 +34,11 @@ export interface IPlannerProps {
 export interface IPlannerSectionState {
     stations: string[],
     origin: string,
-    destination: string
+    destination: string,
+    maps: any,
+    focusedStations: any,
+    mapSelectedStations: IStationInfo[],
+    mapStations: IStationInfo[]
 }
 
 export interface IPlannerSectionProps {

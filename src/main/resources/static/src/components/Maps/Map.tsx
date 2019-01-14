@@ -114,12 +114,15 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private onCircleInteraction(event: any): void {
-        let output: ICircleEvent = {
-            x: event.pageX,
-            y: event.pageY,
-            target: event.target
+        if (this.props.hoverCallback) {
+            let output: ICircleEvent = {
+                x: event.pageX,
+                y: event.pageY,
+                target: event.target
+            }
+
+            this.props.hoverCallback(output);
         }
-        this.props.hoverCallback(output);
     }
 
     private generateCircles(): JSX.Element {
