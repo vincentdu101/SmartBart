@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./PlannerSection.scss";
+import { IStationInfo } from "../../../types/StationTypes";
 import { IPlannerSectionState, IPlannerSectionProps } from "../../../types/PlannerTypes";
 import PlannerTable from "../../PlannerTable/PlannerTable";
 import DropdownInfo from "../../Dropdown/DropdownInfo";
@@ -14,6 +15,7 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.loadStationsInfo = this.loadStationsInfo.bind(this);
         this.originSelection = this.originSelection.bind(this);
         this.destinationSelection = this.destinationSelection.bind(this);
+        this.addStationToMapList = this.addStationToMapList.bind(this);
 
         this.state = {
             maps: null,
@@ -33,14 +35,19 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         });
     }
 
+    private addStationToMapList(station: string): IStationInfo[] {
+        let selectedStation = StationService.filterForStation(station, this.state.mapStations);
+        let mapSelectedStations = this.state.mapSelectedStations;
+        mapSelectedStations.push(selectedStation);
+        return mapSelectedStations;
+    }
+
     private originSelection(origin: string): void {
-        let selectedStation = StationService.filterForStation(origin, this.state.mapStations);
-        let mapSelectedStations = this.state.mapSelectedStations.push(selectedStation);
-        this.setState({origin: origin});
+        this.setState({origin: origin, mapSelectedStations: this.addStationToMapList(origin)});
     }
 
     private destinationSelection(destination: string): void {
-        this.setState({destination: destination});
+        this.setState({destination: destination, mapSelectedStations: this.addStationToMapList(destination)});
     }
 
     public componentDidMount(): void {

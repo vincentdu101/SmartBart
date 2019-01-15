@@ -17,11 +17,12 @@ export namespace StationService {
     }
 
     export function filterForStation(station: string, stations: IStationInfo[]): IStationInfo {
-        return stations.filter((entry) => {
-            if (entry.name === station) {
-                return entry;
+        for( let index in stations ) {
+            if (stations[index].abbr === station) {
+                return stations[index];
             }
-        })[0];
+        }
+        return stations[0];
     }
 
     export function getStationsEstimatesFiltered(props: Readonly<any>) : Promise<any> {

@@ -18,6 +18,12 @@ export class Map extends React.Component<IMapProps, IMapState> {
     private offsetLeft = 900;
     private offsetTop = 550;
     private scaleRate = 30;
+    private line = d3.line()
+        .x((d) => {
+            return x(d[1]);
+        }).y((d) => {
+            return y([d[0]]);
+        }).interpolate(interpolations[5]);
 
     constructor(props: any) {
         super(props);
@@ -164,6 +170,12 @@ export class Map extends React.Component<IMapProps, IMapState> {
         } else {
             return (<div>test</div>);
         }
+    }
+
+    private generateLines(): JSX.Element | undefined {
+        return (
+            <path className="line shadow" d={this.line(data)} strokeLinecap="round"/>
+        );
     }
 
     private generatePath(geoPath: any, data: any): JSX.Element | undefined {
