@@ -13,10 +13,9 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
 
         this.state = {
             text: <div>Test</div>,
-            x: 0,
-            y: 0,
             station: undefined,
-            tooltipActive: false
+            tooltipActive: false,
+            mapHeight: 0
         };
     } 
 
@@ -26,11 +25,10 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
 
     public componentWillReceiveProps(nextProps: Readonly<any>): void {
         this.setState({
-            x: nextProps.x, 
-            y: nextProps.y, 
             text: nextProps.text(nextProps.station),
             station: nextProps.station,
-            tooltipActive: nextProps.tooltipActive
+            tooltipActive: nextProps.tooltipActive,
+            mapHeight: nextProps.mapHeight
         });
     }
 
@@ -39,9 +37,11 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
     }
 
     private determinePosition(): {top: string, left: string} {
+        let leftBuffer = 20;
+        let topBuffer = this.state.mapHeight - 50;
         return {
-            left: (this.state.x - 500) + "px",
-            top: (this.state.y - 100) + "px"
+            left: (leftBuffer) + "px",
+            top: (topBuffer) + "px"
         }
     }
 

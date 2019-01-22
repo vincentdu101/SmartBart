@@ -11,12 +11,13 @@ import { Card, CardBody, CardTitle } from "reactstrap";
 
 export default class StationsSection extends React.Component<IStationsSectionProps, IStationsSectionState> {
 
+    private mapHeight = 500;
+
     constructor(props: IStationsSectionProps) {
         super(props);
 
         this.loadStationsInfo = this.loadStationsInfo.bind(this);
         this.loadMapsInfo = this.loadMapsInfo.bind(this);
-        this.originSelection = this.originSelection.bind(this);
         this.mapHoveredStation = this.mapHoveredStation.bind(this);
         this.outputStationCards = this.outputStationCards.bind(this);
 
@@ -55,10 +56,6 @@ export default class StationsSection extends React.Component<IStationsSectionPro
         MapService.getMapData().then((mapData: any) => {
             this.setState({maps: mapData.data});
         });
-    }
-
-    private originSelection(station: string): void {
-        console.log(station);
     }
 
     private mapHoveredStation(position: ICircleEvent): void {
@@ -106,8 +103,7 @@ export default class StationsSection extends React.Component<IStationsSectionPro
                                     stations={this.state.stations}
                                     hoverCallback={this.mapHoveredStation} />
 
-                            <CircleTooltip  x={this.state.tooltipX}
-                                            y={this.state.tooltipY}
+                            <CircleTooltip  mapHeight={this.mapHeight}
                                             station={this.state.tooltipStation}
                                             tooltipActive={this.state.tooltipActive}
                                             text={this.state.tooltipTextCallback} />
