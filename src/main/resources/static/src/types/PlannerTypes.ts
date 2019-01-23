@@ -38,7 +38,10 @@ export interface IPlannerSectionState {
     maps: any,
     focusedStations: any,
     mapSelectedStations: IStationInfo[],
-    mapStations: IStationInfo[]
+    mapStations: IStationInfo[],
+    tooltipStation: IStationInfo | undefined,
+    tooltipActive: boolean,
+    tooltipTextCallback: Function
 }
 
 export interface IPlannerSectionProps {

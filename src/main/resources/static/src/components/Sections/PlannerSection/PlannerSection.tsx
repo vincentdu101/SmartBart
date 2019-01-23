@@ -5,9 +5,13 @@ import { IPlannerSectionState, IPlannerSectionProps } from "../../../types/Plann
 import PlannerTable from "../../PlannerTable/PlannerTable";
 import DropdownInfo from "../../Dropdown/DropdownInfo";
 import { StationService } from "../../../services/StationService/StationService";
+import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
 import { Map } from "../../Maps/Map";
+import { ICircleEvent } from "../../../types/MapTypes";
 
 export default class PlannerSection extends React.Component<{}, IPlannerSectionState> {
+
+    private mapHeight = 500;
 
     constructor(props: IPlannerSectionProps) {
         super(props);
@@ -16,6 +20,7 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.originSelection = this.originSelection.bind(this);
         this.destinationSelection = this.destinationSelection.bind(this);
         this.addStationToMapList = this.addStationToMapList.bind(this);
+        this.mapHoveredStation = this.mapHoveredStation.bind(this);
 
         this.state = {
             maps: null,
@@ -24,7 +29,10 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
             mapSelectedStations: [],
             focusedStations: [],
             origin: "",
-            destination: ""
+            destination: "",
+            tooltipStation: undefined,
+            tooltipActive: false,
+            tooltipTextCallback: StationService.outputBartText
         };
     }
 
@@ -32,6 +40,16 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.setState({stations: []});
         StationService.getStationsInfo().then(data => {
             this.setState({stations: data, mapStations: data});
+        });
+    }
+
+    private mapHoveredStation(position: ICircleEvent): void {
+        const station = this.state.mapStations[parseInt(position.target.dataset.index)];
+        
+        this.setState({
+            tooltipStation: station,
+            tooltipActive: true,
+            tooltipTextCallback: StationService.outputBartText
         });
     }
 
@@ -51,6 +69,12 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
     }
 
     public componentDidMount(): void {
+        this.setState({
+            tooltipStation: undefined,
+            tooltipActive: false,
+            tooltipTextCallback: StationService.outputBartText
+        });
+
         this.loadStationsInfo();
     }
 
@@ -73,7 +97,13 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
                                 destination={this.state.destination} />
 
                 <Map    maps={this.state.maps} 
-                        stations={this.state.mapSelectedStations} />                                
+                        stations={this.state.mapSelectedStations}
+                        hoverCallback={this.mapHoveredStation} /> 
+
+                <CircleTooltip  mapHeight={this.mapHeight}
+                                station={this.state.tooltipStation}
+                                tooltipActive={this.state.tooltipActive}
+                                text={this.state.tooltipTextCallback} />                                                      
             </section>
         );
     }
