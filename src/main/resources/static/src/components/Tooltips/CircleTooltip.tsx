@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ITooltipState, ITooltipProps } from "../../types/TooltipTypes";
-// import { IStationInfo } from "../../types/StationTypes";
 import "./CircleTooltip.css";
 
 export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState> {
@@ -15,7 +14,9 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
             text: <div>Test</div>,
             station: undefined,
             tooltipActive: false,
-            mapHeight: 0
+            mapHeight: 0,
+            topBuffer: 50,
+            leftBuffer: 20
         };
     } 
 
@@ -28,7 +29,9 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
             text: nextProps.text(nextProps.station),
             station: nextProps.station,
             tooltipActive: nextProps.tooltipActive,
-            mapHeight: nextProps.mapHeight
+            mapHeight: nextProps.mapHeight,
+            leftBuffer: nextProps.leftBuffer || 20,
+            topBuffer: nextProps.topBuffer || 50
         });
     }
 
@@ -37,8 +40,8 @@ export class CircleTooltip extends React.Component<ITooltipProps, ITooltipState>
     }
 
     private determinePosition(): {top: string, left: string} {
-        let leftBuffer = 20;
-        let topBuffer = this.state.mapHeight - 50;
+        let leftBuffer = this.state.leftBuffer;
+        let topBuffer = this.state.mapHeight - this.state.topBuffer;
         return {
             left: (leftBuffer) + "px",
             top: (topBuffer) + "px"

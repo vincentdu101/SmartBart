@@ -5,13 +5,10 @@ import { IPlannerSectionState, IPlannerSectionProps } from "../../../types/Plann
 import PlannerTable from "../../PlannerTable/PlannerTable";
 import DropdownInfo from "../../Dropdown/DropdownInfo";
 import { StationService } from "../../../services/StationService/StationService";
-import { CircleTooltip } from "../../Tooltips/CircleTooltip"; 
 import { Map } from "../../Maps/Map";
 import { ICircleEvent } from "../../../types/MapTypes";
 
 export default class PlannerSection extends React.Component<{}, IPlannerSectionState> {
-
-    private mapHeight = 500;
 
     constructor(props: IPlannerSectionProps) {
         super(props);
@@ -21,6 +18,7 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.destinationSelection = this.destinationSelection.bind(this);
         this.addStationToMapList = this.addStationToMapList.bind(this);
         this.mapHoveredStation = this.mapHoveredStation.bind(this);
+        this.outputMapHoverInfo = this.outputMapHoverInfo.bind(this);
 
         this.state = {
             maps: null,
@@ -68,6 +66,15 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.setState({destination: destination, mapSelectedStations: this.addStationToMapList(destination)});
     }
 
+    private outputMapHoverInfo(position: ICircleEvent): JSX.Element {
+        if (!!position) {
+            const station = this.state.mapStations[parseInt(position.target.dataset.index)];
+            return StationService.outputBartText(station);
+        } else {
+            return (<input type="hidden" />);
+        }
+    }
+
     public componentDidMount(): void {
         this.setState({
             tooltipStation: undefined,
@@ -98,12 +105,8 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
 
                 <Map    maps={this.state.maps} 
                         stations={this.state.mapSelectedStations}
-                        hoverCallback={this.mapHoveredStation} /> 
-
-                <CircleTooltip  mapHeight={this.mapHeight}
-                                station={this.state.tooltipStation}
-                                tooltipActive={this.state.tooltipActive}
-                                text={this.state.tooltipTextCallback} />                                                      
+                        console={true}
+                        outputMapHoverInfo={this.outputMapHoverInfo} />                                                     
             </section>
         );
     }

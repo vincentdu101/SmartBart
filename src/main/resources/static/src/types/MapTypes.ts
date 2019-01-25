@@ -18,6 +18,8 @@ export interface IMapProps {
     maps: any;
     stations: any;
     hoverCallback?: Function;
+    console?: boolean;
+    outputMapHoverInfo?: Function;
 }
 
 export interface IMapState {
@@ -31,6 +33,8 @@ export interface IMapState {
     startPageX: number;
     startPageY: number;
     zoom: number;
+    console: boolean;
+    outputMapHoverInfo: Function | undefined;
 }
 
 export interface ICircleEvent {

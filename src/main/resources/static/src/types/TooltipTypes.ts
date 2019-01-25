@@ -5,6 +5,8 @@ export interface ITooltipState {
     station: IStationInfo | undefined,
     tooltipActive: boolean;
     mapHeight: number;
+    topBuffer: number;
+    leftBuffer: number;
 }
 
 export interface ITooltipProps {
@@ -12,4 +14,6 @@ export interface ITooltipProps {
     station: IStationInfo | undefined,
     tooltipActive: boolean;
     mapHeight: number;
+    topBuffer?: number;
+    leftBuffer?: number;
 }

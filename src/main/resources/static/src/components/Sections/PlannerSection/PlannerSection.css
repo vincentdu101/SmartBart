@@ -3,3 +3,6 @@
   padding: 10px; }
   .planner-menu-row .first-col {
     margin-left: 15px; }
+
+.planner-table {
+  min-height: 300px; }

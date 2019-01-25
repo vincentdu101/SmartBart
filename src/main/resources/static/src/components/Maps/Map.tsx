@@ -32,6 +32,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleTouchStart = this.handleTouchStart.bind(this);
         this.handleTouchMove = this.handleTouchMove.bind(this);
+        this.outputConsoleSection = this.outputConsoleSection.bind(this);
         this.zoomIn = this.zoomIn.bind(this);
         this.zoomOut = this.zoomOut.bind(this);
 
@@ -45,7 +46,9 @@ export class Map extends React.Component<IMapProps, IMapState> {
             translateOn: false,
             zoom: this.scaleRate,
             startPageX: 0,
-            startPageY: 0
+            startPageY: 0,
+            console: false,
+            outputMapHoverInfo: undefined
         };
     }
 
@@ -103,7 +106,12 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     public componentWillReceiveProps(nextProps: Readonly<any>): void {
-        this.setState({maps: nextProps.maps, stations: nextProps.stations});
+        this.setState({
+            maps: nextProps.maps, 
+            stations: nextProps.stations,
+            console: nextProps.console || false,
+            outputMapHoverInfo: nextProps.outputMapHoverInfo
+        });
     }
 
     private projection(): GeoProjection {
@@ -114,14 +122,16 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private onCircleInteraction(event: any): void {
-        if (this.props.hoverCallback) {
-            let output: ICircleEvent = {
-                x: event.pageX,
-                y: event.pageY,
-                target: event.target
-            }
+        let output: ICircleEvent = {
+            x: event.pageX,
+            y: event.pageY,
+            target: event.target
+        }
 
+        if (this.props.hoverCallback) {
             this.props.hoverCallback(output);
+        } else if (this.state.outputMapHoverInfo) {
+            this.state.outputMapHoverInfo(output);
         }
     }
 
@@ -204,6 +214,44 @@ export class Map extends React.Component<IMapProps, IMapState> {
         return "0 300 480 300";
     }
 
+    private outputConsoleSection(): JSX.Element {
+        if (this.state.console && !!this.state.outputMapHoverInfo) {
+            return (
+                <div className="row">
+                    <div className="col-xs-12 col-sm-6">
+                        {this.state.outputMapHoverInfo()}
+                    </div>
+
+                    <div className="col-xs-12 co-sm-3">
+                        <div 
+                            className="btn btn-primary col"
+                            onClick={this.zoomIn}
+                        >Zoom In</div>
+                    </div>
+                    <div className="col-xs-12 co-sm-3">
+                        <div 
+                            className="btn btn-warning col"
+                            onClick={this.zoomOut}
+                        >Zoom Out</div>
+                    </div>                    
+                </div>
+            );
+        } else {
+            return (
+                <div className="row align-items-center">
+                    <div 
+                        className="btn btn-primary col"
+                        onClick={this.zoomIn}
+                    >Zoom In</div>
+                    <div 
+                        className="btn btn-warning col"
+                        onClick={this.zoomOut}
+                    >Zoom Out</div>
+                </div>
+            );
+        }
+    }
+
     public generateMap(path: d3.GeoPath): JSX.Element | undefined {
         if (stateFeatures["features"]) {
             return this.generatePath(path, stateFeatures["features"]);
@@ -236,16 +284,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
                 </svg>
 
                 <div className="card">
-                    <div className="row align-items-center">
-                        <div 
-                            className="btn btn-primary col"
-                            onClick={this.zoomIn}
-                        >Zoom In</div>
-                        <div 
-                            className="btn btn-warning col"
-                            onClick={this.zoomOut}
-                        >Zoom Out</div>
-                    </div>
+                    {this.outputConsoleSection()}
                 </div>
             </div>
         );
