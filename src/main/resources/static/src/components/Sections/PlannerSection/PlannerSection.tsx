@@ -68,7 +68,9 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
 
     private outputMapHoverInfo(position: ICircleEvent): JSX.Element {
         if (!!position) {
-            const station = this.state.mapStations[parseInt(position.target.dataset.index)];
+            const station = this.state.mapStations.filter((info: IStationInfo) => {
+                return info.abbr === position.target.dataset.abbr;
+            })[0];
             return StationService.outputBartText(station);
         } else {
             return (<input type="hidden" />);

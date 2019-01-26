@@ -34,7 +34,7 @@ export interface IMapState {
     startPageY: number;
     zoom: number;
     console: boolean;
-    outputMapHoverInfo: Function | undefined;
+    mapHoverOutput: Function | undefined;
 }
 
 export interface ICircleEvent {

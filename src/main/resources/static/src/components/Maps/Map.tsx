@@ -48,7 +48,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
             startPageX: 0,
             startPageY: 0,
             console: false,
-            outputMapHoverInfo: undefined
+            mapHoverOutput: undefined
         };
     }
 
@@ -109,8 +109,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.setState({
             maps: nextProps.maps, 
             stations: nextProps.stations,
-            console: nextProps.console || false,
-            outputMapHoverInfo: nextProps.outputMapHoverInfo
+            console: nextProps.console || false
         });
     }
 
@@ -130,8 +129,8 @@ export class Map extends React.Component<IMapProps, IMapState> {
 
         if (this.props.hoverCallback) {
             this.props.hoverCallback(output);
-        } else if (this.state.outputMapHoverInfo) {
-            this.state.outputMapHoverInfo(output);
+        } else if (this.props.outputMapHoverInfo) {
+            this.setState({mapHoverOutput: this.props.outputMapHoverInfo(output)});
         }
     }
 
@@ -156,6 +155,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
                                         className={`states-circle raw state-transition-circle-${feature.abbr}`}
                                         r={2}
                                         data-index={i}
+                                        data-abbr={feature.abbr}
                                         cx={locations[0]}
                                         cy={locations[1]}
                                         fill={fill}
@@ -215,11 +215,11 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private outputConsoleSection(): JSX.Element {
-        if (this.state.console && !!this.state.outputMapHoverInfo) {
+        if (this.state.console && !!this.state.mapHoverOutput) {
             return (
                 <div className="row">
-                    <div className="col-xs-12 col-sm-6">
-                        {this.state.outputMapHoverInfo()}
+                    <div className="col-xs-12 col-sm-6 card">
+                        {this.state.mapHoverOutput}
                     </div>
 
                     <div className="col-xs-12 co-sm-3">
