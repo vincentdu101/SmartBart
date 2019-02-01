@@ -7,6 +7,7 @@ import DropdownInfo from "../../Dropdown/DropdownInfo";
 import { StationService } from "../../../services/StationService/StationService";
 import { Map } from "../../Maps/Map";
 import { ICircleEvent } from "../../../types/MapTypes";
+import Select from "react-select";
 
 export default class PlannerSection extends React.Component<{}, IPlannerSectionState> {
 
@@ -92,9 +93,9 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
             <section className="planner-section">
                 <div className="row planner-menu-row">
                     <div className="col-xs-6 first-col">
-                        <DropdownInfo   input={this.state.stations}
-                                        label="Origin" 
-                                        selectionCallback={this.originSelection} />
+                        <Select     options={this.state.stations}
+                                    label="Origin" 
+                                    onclick={this.originSelection} />
                     </div>
                     <div className="col-xs-6">
                         <DropdownInfo   input={this.state.stations} 
