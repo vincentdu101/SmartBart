@@ -32,7 +32,7 @@ export interface IPlannerProps {
 }
 
 export interface IPlannerSectionState {
-    stations: string[],
+    stations: {value: string, label: string}[],
     origin: string,
     destination: string,
     maps: any,

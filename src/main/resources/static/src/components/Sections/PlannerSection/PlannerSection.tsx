@@ -20,6 +20,7 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         this.addStationToMapList = this.addStationToMapList.bind(this);
         this.mapHoveredStation = this.mapHoveredStation.bind(this);
         this.outputMapHoverInfo = this.outputMapHoverInfo.bind(this);
+        this.parseStationsIntoSelect = this.parseStationsIntoSelect.bind(this);
 
         this.state = {
             maps: null,
@@ -35,10 +36,25 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         };
     }
 
+    private parseStationsIntoSelect(stations: string[]): {value: string, label: string}[] {
+        let parsedStations = {};
+
+        return stations.filter((station) => {
+            if (!parsedStations[station]) {
+                parsedStations[station] = true;
+                return station;
+            } else {
+                return false;
+            }
+        }).map((station: string) => {
+            return {value: station, label: station};
+        });
+    }
+
     private loadStationsInfo(): void {
         this.setState({stations: []});
         StationService.getStationsInfo().then(data => {
-            this.setState({stations: data, mapStations: data});
+            this.setState({stations: this.parseStationsIntoSelect(data), mapStations: data});
         });
     }
 
@@ -93,9 +109,7 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
             <section className="planner-section">
                 <div className="row planner-menu-row">
                     <div className="col-xs-6 first-col">
-                        <Select     options={this.state.stations}
-                                    label="Origin" 
-                                    onclick={this.originSelection} />
+                        <Select     options={this.state.stations} />
                     </div>
                     <div className="col-xs-6">
                         <DropdownInfo   input={this.state.stations} 
