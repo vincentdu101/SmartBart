@@ -8,6 +8,7 @@ import { CircleTooltip } from "../../Tooltips/CircleTooltip";
 import { ICircleEvent } from "../../../types/MapTypes";
 import { Link } from "react-router-dom";
 import { Card, CardBody, CardTitle } from "reactstrap";
+import { Nav, NavItem, NavLink } from "reactstrap";
 
 export default class StationsSection extends React.Component<IStationsSectionProps, IStationsSectionState> {
 
@@ -95,9 +96,26 @@ export default class StationsSection extends React.Component<IStationsSectionPro
 
         return (
             <section className="stations-section no-gutters">
+
                 <div className="row">
 
-                    <div className="col-xs-12">
+                    <Nav vertical={true} className="col-xs-2">
+                        <NavItem>
+                            <NavLink href="#">Link</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="#">Link</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="#">Another Link</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink disabled={true} href="#">Disabled Link</NavLink>
+                        </NavItem>
+                    </Nav>
+
+
+                    <div className="col-xs-10">
                         <div className="card">
                             <Map    maps={this.state.maps} 
                                     stations={this.state.stations}

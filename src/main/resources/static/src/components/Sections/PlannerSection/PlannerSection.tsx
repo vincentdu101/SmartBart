@@ -3,7 +3,6 @@ import "./PlannerSection.scss";
 import { IStationInfo } from "../../../types/StationTypes";
 import { IPlannerSectionState, IPlannerSectionProps } from "../../../types/PlannerTypes";
 import PlannerTable from "../../PlannerTable/PlannerTable";
-import DropdownInfo from "../../Dropdown/DropdownInfo";
 import { StationService } from "../../../services/StationService/StationService";
 import { Map } from "../../Maps/Map";
 import { ICircleEvent } from "../../../types/MapTypes";
@@ -36,18 +35,17 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         };
     }
 
-    private parseStationsIntoSelect(stations: string[]): {value: string, label: string}[] {
+    private parseStationsIntoSelect(stations: IStationInfo[]): {value: string, label: string}[] {
         let parsedStations = {};
-
         return stations.filter((station) => {
-            if (!parsedStations[station]) {
-                parsedStations[station] = true;
+            if (!parsedStations[station.abbr]) {
+                parsedStations[station.abbr] = station;
                 return station;
             } else {
                 return false;
             }
-        }).map((station: string) => {
-            return {value: station, label: station};
+        }).map((station: IStationInfo) => {
+            return {value: station.abbr, label: station.name};
         });
     }
 
@@ -75,12 +73,12 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
         return mapSelectedStations;
     }
 
-    private originSelection(origin: string): void {
-        this.setState({origin: origin, mapSelectedStations: this.addStationToMapList(origin)});
+    private originSelection(origin: {value: string, label: string}): void {
+        this.setState({origin: origin.value, mapSelectedStations: this.addStationToMapList(origin.value)});
     }
 
-    private destinationSelection(destination: string): void {
-        this.setState({destination: destination, mapSelectedStations: this.addStationToMapList(destination)});
+    private destinationSelection(destination: {value: string, label: string}): void {
+        this.setState({destination: destination.value, mapSelectedStations: this.addStationToMapList(destination.value)});
     }
 
     private outputMapHoverInfo(position: ICircleEvent): JSX.Element {
@@ -109,12 +107,14 @@ export default class PlannerSection extends React.Component<{}, IPlannerSectionS
             <section className="planner-section">
                 <div className="row planner-menu-row">
                     <div className="col-xs-6 first-col">
-                        <Select     options={this.state.stations} />
+                        <Select     className="planner-chosen-select"
+                                    options={this.state.stations}
+                                    onChange={this.originSelection} />
                     </div>
                     <div className="col-xs-6">
-                        <DropdownInfo   input={this.state.stations} 
-                                        label="Destination"
-                                        selectionCallback={this.destinationSelection} />
+                        <Select     className="planner-chosen-select"    
+                                    options={this.state.stations}
+                                    onChange={this.destinationSelection} />
                     </div>
                 </div>
                 <PlannerTable   origin={this.state.origin} 
