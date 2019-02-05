@@ -23,6 +23,7 @@ export interface IMapProps {
 }
 
 export interface IMapState {
+    width: number;
     maps: any;
     states: any;
     stations: any[];

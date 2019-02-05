@@ -12,7 +12,6 @@ import "./Map.scss";
 
 export class Map extends React.Component<IMapProps, IMapState> {
 
-    private width = window.innerWidth;
     private height = 600;
     private center: [number, number] = [-120, 37];
     private offsetLeft = 900;
@@ -37,6 +36,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.zoomOut = this.zoomOut.bind(this);
 
         this.state = {
+            width: window.innerWidth,
             states: stateIds,
             maps: null,
             stations: [],
@@ -83,7 +83,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
     }
 
     private updateDimensions(): void {
-        this.width = window.innerWidth;
+        this.setState({width: window.innerWidth});
     }
 
     private zoomIn(): void {
@@ -98,6 +98,10 @@ export class Map extends React.Component<IMapProps, IMapState> {
         this.setState({
             maps: null, translateX: 0, translateY: 0, 
             translateOn: false, zoom: this.scaleRate
+        });
+
+        window.addEventListener("resize", () => {
+            this.updateDimensions();
         });
     }
 
@@ -116,8 +120,8 @@ export class Map extends React.Component<IMapProps, IMapState> {
     private projection(): GeoProjection {
         return d3.geoMercator()
                 .center(this.center)
-                .translate([ (this.width / 2 + this.offsetLeft + this.state.translateX), (this.height / 2) + this.offsetTop + this.state.translateY])
-                .scale(this.width * this.scaleRate + this.state.zoom);
+                .translate([ (this.state.width / 2 + this.offsetLeft + this.state.translateX), (this.height / 2) + this.offsetTop + this.state.translateY])
+                .scale(this.state.width * this.scaleRate + this.state.zoom);
     }
 
     private onCircleInteraction(event: any): void {
@@ -276,7 +280,7 @@ export class Map extends React.Component<IMapProps, IMapState> {
                     onTouchStart={ this.handleTouchStart }
                     onTouchMove={ this.handleTouchMove }
                     onTouchEnd={ this.handleMouseUp }
-                    width={this.width}
+                    width={this.state.width}
                     height={this.height}
                 >
                     {this.generateMap(path)}
