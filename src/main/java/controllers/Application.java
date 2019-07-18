@@ -23,7 +23,10 @@ public class Application implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
     public static void main(String args[]) {
-        SpringApplication.run(Application.class, args);
+        // SpringApplication.run(Application.class, args);
+        SpringApplication app = new SpringApplication(Application.class);
+        app.setDefaultProperties(Collections.singletonMap("server.port", "8083"));
+        app.run(args);
     }
 
     private StationController stationController;
@@ -56,7 +59,7 @@ public class Application implements CommandLineRunner {
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new com.mysql.jdbc.Driver());
-        dataSource.setUrl("jdbc:mysql://localhost:3306/train_app?verifyServerCertificate=false&useSSL=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/train_app?verifyServerCertificate=false&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=" + TimeZone.getDefault().getID());
         dataSource.setUsername("root");
         dataSource.setPassword("");
 

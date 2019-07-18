@@ -25,8 +25,10 @@ public class RouteService {
         JSONObject routes = (JSONObject) root.get("routes");
         JSONArray route = routes.getJSONArray("route");
         List<Route> convertedRoutes = new ArrayList<>();
-        while(route.iterator().hasNext()) {
-            JSONObject routeRow = (JSONObject) route.iterator().next();
+        System.out.println(route);
+        for (int i = 0; i < route.length(); i++) {
+            JSONObject routeRow = (JSONObject) route.get(i);
+            System.out.println(routeRow);
             convertedRoutes.add(new Route(routeRow));
         }
         return convertedRoutes;
