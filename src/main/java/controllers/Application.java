@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +15,9 @@ import org.springframework.context.annotation.ComponentScan;
 import java.util.*;
 
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import services.*;
 import models.*;
 
@@ -32,6 +36,7 @@ public class Application implements CommandLineRunner {
     private StationController stationController;
     private TrainController trainController;
     private RoutesController routesController;
+    private PlannerController plannerController;
     private StationService stationService;
     private TrainMonitor trainMonitor;
     private TrainStationProgressService trainStationProgressService;
@@ -41,6 +46,7 @@ public class Application implements CommandLineRunner {
     private TrainFactory southFactory;
     private RouteService routeService;
     private RequestService requestService;
+    private PlannerService plannerService;
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -51,11 +57,13 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         routeService = (RouteService) context.getBean("routeService");
+        plannerService = (PlannerService) context.getBean("plannerService");
         requestService = (RequestService) context.getBean("requestService");
+        stationService = (StationService) context.getBean("stationService");
 
-        //stationController = (StationController) context.getBean("stationController");
-        //trainController = (TrainController) context.getBean("trainController");
         routesController = (RoutesController) context.getBean("routesController");
+        plannerController = (PlannerController) context.getBean("plannerController");
+        stationController = (StationController) context.getBean("stationController");
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new com.mysql.jdbc.Driver());
@@ -63,13 +71,28 @@ public class Application implements CommandLineRunner {
         dataSource.setUsername("root");
         dataSource.setPassword("");
 
-        log.info("Creating tables");
+        // log.info("Creating tables");
         jdbcTemplate = new JdbcTemplate(dataSource);
+    }
 
-        setupTables();
-        setupStations();
-        setupTrains();
-        startTrains();
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+
+        return new WebMvcConfigurerAdapter() {
+
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("POST", "GET",  "PUT", "OPTIONS", "DELETE")
+                        .allowedHeaders("X-Auth-Token", "Content-Type")
+                        .exposedHeaders("custom-header1", "custom-header2")
+                        .allowCredentials(false)
+                        .maxAge(4800);
+            }
+
+        };
+
     }
 
     public void setupTables() {
@@ -130,34 +153,5 @@ public class Application implements CommandLineRunner {
         jdbcTemplate.execute("update station set next_north_station_id=3, next_south_station_id=5 where id = 4");
         jdbcTemplate.execute("update station set next_north_station_id=4, next_south_station_id=6 where id = 5");
         jdbcTemplate.execute("update station set next_north_station_id=5, next_south_station_id=null where id = 6");
-    }
-
-    public void setupTrains() {
-        northFactory = new NorthTrainFactory(trainStationProgressService, trainService, stationService, seatService);
-        southFactory = new SouthTrainFactory(trainStationProgressService, trainService, stationService, seatService);
-
-        northFactory.setStationController(stationController);
-        southFactory.setStationController(stationController);
-
-        northFactory.setTrainController(trainController);
-        southFactory.setTrainController(trainController);
-
-        northFactory.prepareTrain(TrainModel.A, StationService.findStationByDescription("North A Station"), Direction.SOUTH);
-        northFactory.prepareTrain(TrainModel.B, StationService.findStationByDescription("North B Station"), Direction.NORTH);
-        northFactory.prepareTrain(TrainModel.C, StationService.findStationByDescription("North C Station"), Direction.NORTH);
-
-        southFactory.prepareTrain(TrainModel.A, StationService.findStationByDescription("South A Station"), Direction.NORTH);
-        southFactory.prepareTrain(TrainModel.B, StationService.findStationByDescription("South B Station"), Direction.NORTH);
-        southFactory.prepareTrain(TrainModel.C, StationService.findStationByDescription("South C Station"), Direction.SOUTH);
-    }
-
-    public void startTrains() throws InterruptedException {
-        northFactory.beginTravelForAllTrains();
-        southFactory.beginTravelForAllTrains();
-
-        Thread.sleep(3000);
-
-        northFactory.beginTravelForAllTrains();
-        southFactory.beginTravelForAllTrains();
     }
 }

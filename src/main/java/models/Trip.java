@@ -1,36 +1,42 @@
 package models;
 
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
 
 public class Trip {
 
     private String origin;
     private String destination;
     private double fare;
-    private LocalDateTime origTimeMin;
-    private LocalDate origTimeDate;
-    private LocalDateTime destTimeMin;
-    private LocalDate destTimeDate;
+    private Date origDateTime;
+    private Date destDateTime;
     private double clipper;
-    private double tripTime;
+    private int tripTime;
     private double co2;
+    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/dd/yyyy hh:mm a");
+    private SimpleDateFormat format = new SimpleDateFormat("M/dd/yyyy hh:mm aaa", Locale.US);
 
     public Trip() {}
 
-    public Trip clone(Trip trip) {
-        this.origin = trip.getOrigin();
-        this.destination = trip.getDestination();
-        this.fare = trip.getFare();
-        this.origTimeMin = trip.getOrigTimeMin();
-        this.origTimeDate = trip.getOrigTimeDate();
-        this.destTimeMin = trip.getDestTimeMin();
-        this.destTimeDate = trip.getDestTimeDate();
-        this.clipper = trip.getClipper();
-        this.tripTime = trip.getTripTime();
-        this.co2 = trip.getCo2();
-
-        return this;
+    public Trip(JSONObject trip) {
+        try {
+            this.origin = trip.getString("@origin");
+            this.destination = trip.getString("@destination");
+            this.fare = trip.getDouble("@fare");
+            this.clipper = trip.getDouble("@clipper");
+            this.tripTime = trip.getInt("@tripTime");
+            this.co2 = trip.getDouble("@co2");
+            this.origDateTime = format.parse(trip.getString("@origTimeDate") + " " + trip.getString("@origTimeMin"));
+            this.destDateTime = format.parse(trip.getString("@destTimeDate") + " " + trip.getString("@destTimeMin"));
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public String getOrigin() {
@@ -57,38 +63,6 @@ public class Trip {
         this.fare = fare;
     }
 
-    public LocalDateTime getOrigTimeMin() {
-        return origTimeMin;
-    }
-
-    public void setOrigTimeMin(LocalDateTime origTimeMin) {
-        this.origTimeMin = origTimeMin;
-    }
-
-    public LocalDate getOrigTimeDate() {
-        return origTimeDate;
-    }
-
-    public void setOrigTimeDate(LocalDate origTimeDate) {
-        this.origTimeDate = origTimeDate;
-    }
-
-    public LocalDateTime getDestTimeMin() {
-        return destTimeMin;
-    }
-
-    public void setDestTimeMin(LocalDateTime destTimeMin) {
-        this.destTimeMin = destTimeMin;
-    }
-
-    public LocalDate getDestTimeDate() {
-        return destTimeDate;
-    }
-
-    public void setDestTimeDate(LocalDate destTimeDate) {
-        this.destTimeDate = destTimeDate;
-    }
-
     public double getClipper() {
         return clipper;
     }
@@ -97,11 +71,11 @@ public class Trip {
         this.clipper = clipper;
     }
 
-    public double getTripTime() {
+    public int getTripTime() {
         return tripTime;
     }
 
-    public void setTripTime(double tripTime) {
+    public void setTripTime(int tripTime) {
         this.tripTime = tripTime;
     }
 
@@ -111,5 +85,21 @@ public class Trip {
 
     public void setCo2(double co2) {
         this.co2 = co2;
+    }
+
+    public String getOrigDateTime() {
+        return origDateTime.toString();
+    }
+
+    public void setOrigDateTime(Date origDateTime) {
+        this.origDateTime = origDateTime;
+    }
+
+    public String getDestDateTime() {
+        return destDateTime.toString();
+    }
+
+    public void setDestDateTime(Date destDateTime) {
+        this.destDateTime = destDateTime;
     }
 }

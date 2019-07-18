@@ -1,0 +1,12 @@
+.planner-menu-row {
+  margin: 10px;
+  padding: 10px; }
+  .planner-menu-row .first-col {
+    margin-left: 15px; }
+
+.planner-table {
+  min-height: 300px; }
+
+.planner-chosen-select {
+  width: 250px;
+  text-align: left; }

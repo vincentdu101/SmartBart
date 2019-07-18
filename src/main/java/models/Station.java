@@ -5,12 +5,15 @@
  */
 package models;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import services.StationService;
 import services.TrainStationProgressService;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,14 +28,9 @@ public class Station implements Serializable {
     private Integer nextSouthStationId;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-    private StationMonitor stationMonitor;
-    private StationService stationService;
-    private TrainMonitor trainMonitor;
-    private TrainStationProgressService trainStationProgressService;
-    private Boolean trainStationed = false;
-    private Train currentTrain;
     private List<Etd> etds;
-
+    private String name;
+    private String abbr;
 
     public Station(){}
 
@@ -48,6 +46,19 @@ public class Station implements Serializable {
         this.nextSouthStationId = nextSouthStationId;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
+    }
+
+    public Station(JSONObject station) {
+        this.name = station.getString("name");
+        this.abbr = station.getString("abbr");
+        this.etds = new ArrayList<>();
+
+        JSONArray etds = station.getJSONArray("etd");
+        for (int i = 0; i < etds.length(); i++) {
+            JSONObject etdRow = etds.getJSONObject(i);
+            this.etds.add(new Etd(etdRow));
+        }
+
     }
 
     public String getDescription() {
@@ -82,20 +93,6 @@ public class Station implements Serializable {
         return nextSouthStationId;
     }
 
-    public Station getNextStation(Direction direction) {
-        if (direction.equals(Direction.NORTH)) {
-            return stationService.findStationById(nextNorthStationId);
-        } else {
-            return stationService.findStationById(nextSouthStationId);
-        }
-    }
-
-    public void setupStation(String description) {
-        Station currentStation = stationService.findStationByDescription(description);
-        trainMonitor.addStation(this);
-        loadStation(currentStation);
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -121,4 +118,29 @@ public class Station implements Serializable {
     setId(Integer id){
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAbbr() {
+        return abbr;
+    }
+
+    public void setAbbr(String abbr) {
+        this.abbr = abbr;
+    }
+
+    public List<Etd> getEtds() {
+        return etds;
+    }
+
+    public void setEtds(List<Etd> etds) {
+        this.etds = etds;
+    }
+
 }
