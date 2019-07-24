@@ -65,14 +65,14 @@ public class Application implements CommandLineRunner {
         plannerController = (PlannerController) context.getBean("plannerController");
         stationController = (StationController) context.getBean("stationController");
 
-        SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-        dataSource.setDriver(new com.mysql.jdbc.Driver());
-        dataSource.setUrl("jdbc:mysql://localhost:3306/train_app?verifyServerCertificate=false&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=" + TimeZone.getDefault().getID());
-        dataSource.setUsername("root");
-        dataSource.setPassword("");
+        // SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+        // dataSource.setDriver(new com.mysql.jdbc.Driver());
+        // dataSource.setUrl("jdbc:mysql://localhost:3306/train_app?verifyServerCertificate=false&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=" + TimeZone.getDefault().getID());
+        // dataSource.setUsername("root");
+        // dataSource.setPassword("");
 
-        // log.info("Creating tables");
-        jdbcTemplate = new JdbcTemplate(dataSource);
+        // // log.info("Creating tables");
+        // jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Bean
