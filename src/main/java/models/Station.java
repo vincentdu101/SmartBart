@@ -7,8 +7,6 @@ package models;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import services.StationService;
-import services.TrainStationProgressService;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

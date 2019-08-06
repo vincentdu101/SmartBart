@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/routes")
-public class RoutesController extends MainController {
+public class RoutesController {
 
     @Autowired
     private RouteService routeService;

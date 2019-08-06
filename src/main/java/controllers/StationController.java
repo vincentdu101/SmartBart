@@ -15,10 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/stations")
-public class StationController extends MainController {
-
-    @Autowired
-    private SimpMessagingTemplate template;
+public class StationController {
 
     @Autowired
     private StationService stationService;
