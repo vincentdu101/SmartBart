@@ -1,6 +1,11 @@
 package models;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Route {
 
@@ -12,6 +17,7 @@ public class Route {
     private String destination;
     private int holidays;
     private int numStns;
+    private List<String> stations;
 
     public Route() {}
 
@@ -20,6 +26,7 @@ public class Route {
         this.abbr = (String) route.get("abbr");
         this.routeID = (String) route.get("routeID");
         this.number = Integer.parseInt((String)route.get("number"));
+        this.stations = new ArrayList<>();
 
         if (route.has("origin")) {
             this.origin = (String) route.get("origin");
@@ -35,6 +42,13 @@ public class Route {
 
         if (route.has("num_stns")) {
             this.numStns = Integer.parseInt((String)route.get("num_stns"));
+        }
+
+        if (route.has("config")) {
+            JSONArray stations = route.getJSONObject("config").getJSONArray("station");
+            this.stations = stations.toList().stream()
+                .map(e -> (String) e)
+                .collect(Collectors.toList());
         }
     }
 
@@ -100,5 +114,13 @@ public class Route {
 
     public void setNumStns(int num_stns) {
         this.numStns = num_stns;
+    }
+
+    public List<String> getStations() {
+        return stations;
+    }
+
+    public void setStations(List<String> stations) {
+        this.stations = stations;
     }
 }

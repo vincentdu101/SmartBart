@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -19,14 +20,10 @@ public class RouteService {
 
     private String path = "https://api.bart.gov/api/route.aspx";
 
-    private List<Route> convertRoutesToList(String content) {
-        JSONObject jsonObject = new JSONObject(content);
-        JSONObject root = (JSONObject) jsonObject.get("root");
-        JSONObject routes = (JSONObject) root.get("routes");
-        JSONArray route = routes.getJSONArray("route");
+    private List<Route> convertRoutesToList(JSONArray route) {
         List<Route> convertedRoutes = new ArrayList<>();
-        while(route.iterator().hasNext()) {
-            JSONObject routeRow = (JSONObject) route.iterator().next();
+        for (int i = 0; i < route.length(); i++) {
+            JSONObject routeRow = (JSONObject) route.get(i);
             convertedRoutes.add(new Route(routeRow));
         }
         return convertedRoutes;
@@ -36,22 +33,32 @@ public class RouteService {
         try {
             String fullPath = path + "?" + requestService.getParamsString("routes");
             String content = requestService.getRequestContent(fullPath);
-            return convertRoutesToList(content);
+            JSONObject jsonObject = new JSONObject(content);
+            JSONObject root = (JSONObject) jsonObject.get("root");
+            JSONObject routes = (JSONObject) root.get("routes");
+            JSONArray route = routes.getJSONArray("route");
+            return convertRoutesToList(route);
         } catch(Exception ex) {
             ex.printStackTrace();
         }
         return null;
     }
 
-    public List<Route> getAllRoutes() {
+    public Optional<Route> getSpecificRoute(String id) {
         try {
-            String fullPath = path + "?" + requestService.getParamsString("routeinfo");
+            String fullPath = path + "?" + requestService.getParamsStringWithExtraParam(
+                    "routeinfo", "route", id
+            );
             String content = requestService.getRequestContent(fullPath);
-            return convertRoutesToList(content);
+            JSONObject jsonObject = new JSONObject(content);
+            JSONObject root = (JSONObject) jsonObject.get("root");
+            JSONObject routes = (JSONObject) root.get("routes");
+            JSONObject route = (JSONObject) routes.get("route");
+            return Optional.of(new Route(route));
         } catch(Exception ex) {
             ex.printStackTrace();
         }
-        return Collections.emptyList();
+        return Optional.empty();
     }
 
 

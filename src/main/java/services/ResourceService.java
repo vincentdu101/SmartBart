@@ -26,37 +26,6 @@ public class ResourceService {
         return LocalDateTime.parse(complete.replace(" ", "T"));
     }
 
-    public static JdbcTemplate runJdbcTemplate() {
-        try {
-            SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-            dataSource.setDriver(new com.mysql.jdbc.Driver());
-            dataSource.setUrl("jdbc:mysql://localhost:3306/train_app");
-            dataSource.setUsername("root");
-            dataSource.setPassword("");
-
-            return new JdbcTemplate(dataSource);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    public static int create(Train train) {
-        String SQL = "INSERT INTO train (name, description, start_station_id, train_state) " +
-                "VALUES ('" + train.getName() + "', '" + train.getDescription() + "', " + train.getStartingStationId() + ", " +
-                "'" + train.getTrainState().getState() + "')";
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        runJdbcTemplate().update(
-                new PreparedStatementCreator() {
-                    public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-                        PreparedStatement pst = con.prepareStatement(SQL, new String[] {"id"});
-                        return pst;
-                    }
-                }, keyHolder
-        );
-        return keyHolder.getKey().intValue();
-    }
-
     protected static Station createStationFromMapObject(Map<String, Object> objectMap) {
         String nextNorthId = objectMap.get("next_north_station_id") == null ? "-1" : objectMap.get("next_north_station_id").toString();
         String nextSouthId = objectMap.get("next_south_station_id") == null ? "-1" : objectMap.get("next_south_station_id").toString();
