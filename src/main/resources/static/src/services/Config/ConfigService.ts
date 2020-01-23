@@ -1,11 +1,11 @@
 export namespace ConfigService {
    
-    export const staticFilteredEstimates = "http://localhost:8080/planner/arrive/all";
+    export const staticFilteredEstimates = "https://vincentdu101.com/smartbart-server/planner/arrive/all";
    
-    export const staticStationsInfo = "http://localhost:8080/stations/all";
+    export const staticStationsInfo = "https://vincentdu101.com/smartbart-server/stations/all";
 
-    export const staticStationEstimates = "http://localhost:8080/stations/estimates";
+    export const staticStationEstimates = "https://vincentdu101.com/smartbart-server/stations/estimates";
 
-    export const staticStationsEstimatesFilter = "http://localhost:8080/stations//estimates/filtered";
+    export const staticStationsEstimatesFilter = "https://vincentdu101.com/smartbart-server/stations/estimates/filtered";
 
 }
