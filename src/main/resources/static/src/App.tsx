@@ -34,12 +34,12 @@ class App extends React.Component<IAppProps, IAppState> {
       <div className="App">
         <div>
           <Navbar color="light" light={true} expand="md">
-            <NavbarBrand href="/">SmartBart</NavbarBrand>
+            <NavbarBrand href="%PUBLIC_URL%/">SmartBart</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar={true}>
               <Nav className="ml-auto" navbar={true}>
                 <NavItem>
-                  <NavLink href="/planner">Planner</NavLink>
+                  <NavLink href="%PUBLIC_URL%/planner">Planner</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
