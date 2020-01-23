@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://vincentdu101.com/smartbart-client",
   "dependencies": {
     "@types/d3": "^5.0.0",
     "@types/react-leaflet": "^1.1.6",
